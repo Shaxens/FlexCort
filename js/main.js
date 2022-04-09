@@ -5,7 +5,7 @@
 
 
 document.body.onload = function() {
-    nbr = 3; // nombre d'images
+    nbr = 5; // nombre d'images
     position = 0;
     container = document.getElementById("containerCarousel");
     g = document.getElementById("g");
@@ -14,7 +14,7 @@ document.body.onload = function() {
     for (i = 1; i <= nbr; i++) {
         div = document.createElement("div");
         div.className = "photo";
-        div.style.backgroundImage = "url('images/carousel" + i + ".jpg')";
+        div.style.backgroundImage = "url('../images/carousel" + i + ".jpg')";
         div.setAttribute("id", "image-" + i);
         container.appendChild(div);
     }
@@ -42,7 +42,7 @@ g.onclick = function() {
         container.style.transform = "translate(" + position * 500 + "px)";
         container.style.transition = "all 0.5s ease";
     } else {
-        position = -2;
+        position = -4;
         container.style.transform = "translate(" + position * 500 + "px)";
         container.style.transition = "all 0.5s ease";
     }
