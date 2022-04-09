@@ -1,0 +1,77 @@
+body {
+    color: white;
+    margin: 0;
+}
+
+h1,
+h3 {
+    text-align: center;
+}
+
+#bk {
+    z-index: 1;
+}
+
+#bk img {
+    width: 100%;
+    position: fixed;
+}
+
+#carouselGlobal {
+    padding-top: 120px;
+}
+
+#carousel {
+    height: 800px;
+    width: 500px;
+    border: solid 4px #fff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#containerCarousel {
+    height: 800px;
+    width: 500px;
+}
+
+.photo {
+    height: 800px;
+    width: 500px;
+    margin: 0;
+    display: inline-block;
+    background-size: cover;
+}
+
+.bouton {
+    position: absolute;
+    width: 70px;
+    cursor: pointer;
+    top: 360px;
+}
+
+#g {
+    left: 0;
+    opacity: 0.4;
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
+#d {
+    right: 0;
+    opacity: 0.4;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+#g:hover {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+#d:hover {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
