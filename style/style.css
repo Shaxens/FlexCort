@@ -117,3 +117,9 @@ header li a::after {
     opacity: 1;
     transition: all 0.3s ease;
 }
+
+#contenu {
+    background-color: #17001aea;
+    /* background-color: #e98a15e3; */
+    border-radius: 5px;
+}
