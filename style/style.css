@@ -46,26 +46,27 @@ header li a::after {
     color: white;
 }
 
-#bk {
+.colBk {
+    margin: 0;
+    padding: 0;
     z-index: 1;
-}
-
-#bk img {
-    width: 100vh;
-    position: absolute;
+    background-image: url("../images/background.jpg");
     background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 
-#accueil {
-    padding-top: 80px;
+.colBk div {
+    padding: 0;
+    margin: 0;
 }
 
 #carouselGlobal {
-    padding-top: 50px;
+    padding: 50px 0 0 0;
 }
 
 #carousel {
-    height: 800px;
+    height: 500px;
     width: 500px;
     border: solid 4px #fff;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
@@ -74,12 +75,12 @@ header li a::after {
 }
 
 #containerCarousel {
-    height: 800px;
+    height: 500px;
     width: 500px;
 }
 
 .photo {
-    height: 800px;
+    height: 500px;
     width: 500px;
     margin: 0;
     display: inline-block;
@@ -90,7 +91,7 @@ header li a::after {
     position: absolute;
     width: 70px;
     cursor: pointer;
-    top: 360px;
+    top: 207px;
 }
 
 #g {
@@ -120,7 +121,12 @@ header li a::after {
 }
 
 #contenu {
-    background-color: #17001aea;
+    color: black;
     /* background-color: #e98a15e3; */
     border-radius: 5px;
+}
+
+#profil {
+    position: absolute;
+    right: 30px;
 }
