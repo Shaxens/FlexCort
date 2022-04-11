@@ -11,37 +11,38 @@
 </head>
 
 <body>
-    <div id="bk"><img class="img-responsive" src="../images/background.jpg" alt="Responsive image"></div>
 
     <?php include("navbar.php") ?>
 
-    <div class="container" id="accueil">
-        <div class="row">
-            <div class="col">
-                <h1>FlexCort</h1>
-                <h3>Parce que trouver une escort n'a jamais été aussi simple</h3>
-            </div>
-        </div>
-    </div>
-
     <div class="container" id="carouselGlobal">
-        <div class="row">
-        <div class="col-sm"></div>
-        <div class="col-sm">
+    <div class="row">
+        <div class="col">
+            <div id="bk"><img class="img-responsive" src="../images/background.jpg" alt="Responsive image"></div>
             <div class="row">
-                <h3 style="width: 100%; padding-bottom: 20px;">Les plus demandé(e)s : </h3>
-                <div class="">
-                        <div id="carousel">
-                            <div id="containerCarousel"></div>
-                            <img src="../images/fleche.jpg" alt="" class="bouton" id="d">
-                            <img src="../images/fleche.jpg" alt="" class="bouton" id="g">
+                <div class="col" id="accueil">
+                    <h1>FlexCort</h1>
+                    <h3>Parce que trouver une escort n'a jamais été aussi simple</h3>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <h3 style="width: 100%; padding-bottom: 20px;">Les plus demandé(e)s : </h3>
+                            <div class="">
+                                <div id="carousel">
+                                    <div id="containerCarousel"></div>
+                                    <img src="../images/fleche.jpg" alt="" class="bouton" id="d">
+                                    <img src="../images/fleche.jpg" alt="" class="bouton" id="g">
+                                </div>
+                            </div>
                         </div>
+                        <div class="col"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm"></div>
     </div>
     </div>
+
+        
 <br>
     <div class="container" >
         <div class="col" id="contenu">

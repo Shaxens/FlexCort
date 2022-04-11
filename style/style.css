@@ -51,8 +51,9 @@ header li a::after {
 }
 
 #bk img {
-    width: 100%;
-    position: fixed;
+    width: 100vh;
+    position: absolute;
+    background-size: cover;
 }
 
 #accueil {
