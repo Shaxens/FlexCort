@@ -14,7 +14,7 @@
         <li><a href="./modeles.php">Nos Modèles</a></li>
         <li><a href="./chambres.php">Nos chambres</a></li>
         <li><a href="./contact.php">Contact</a></li>
-        <li><a href="#" id="profil">Mon profil</a></li>
+        <li><a href="./profil.php" id="profil">Mon profil</a></li>
     </ul>
 </nav>
 </header>

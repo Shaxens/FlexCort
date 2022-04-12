@@ -148,6 +148,10 @@ header li a::after {
     right: 30px;
 }
 
+.compte {
+    color: black;
+}
+
 @keyframes pulse {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
