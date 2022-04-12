@@ -58,7 +58,15 @@
 <div class="container">
     <div class="row">
         <div class="col">
+        <?php
+        require_once "D:\Cours\php\FlexCort\pages\classes\Utilisateur.php";
 
+        $utilisaTest = new Utilisateur("1234567890", "Lourd", "Jesus", "blabla@gmail.bla", "mdp1");
+        echo $utilisaTest->getNom();
+        echo $utilisaTest->getPrenom();
+        echo $utilisaTest->getMail();
+        echo $utilisaTest->getMdp();
+        ?>
         </div>
     </div>
 </div>
