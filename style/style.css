@@ -127,6 +127,10 @@ header li a::after {
     border-radius: 5px;
 }
 
+#contenu h1 {
+    padding-top: 50px;
+}
+
 #defilement {
     position: relative;
     top: 80px;
@@ -149,6 +153,10 @@ header li a::after {
 }
 
 .compte {
+    color: black;
+}
+
+.chateau {
     color: black;
 }
 

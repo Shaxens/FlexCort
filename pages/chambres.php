@@ -12,8 +12,37 @@
 </head>
 <body>
     <?php include("navbar.php") ?>
-    <div id="bk">
-        <img class="img-responsive" src="../images/background.jpg" alt="Responsive image">
+
+
+    <div class="container-fluid chateau" id="carouselGlobal">
+    <div class="row">
+        <div class="col" id="carouselCol">
+            <!-- <div id="bk"><img class="img-responsive" src="../images/background.jpg" alt="Responsive image"></div> -->
+            <!-- <div class="row"> -->
+                <!-- <div class="col" id="accueil"> -->
+                    <h1>Le Chateau des esclaves</h1>
+                    <h3>Pour retrouver les émotions de l'ancien temps</h3>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-fluid">
+                                <div id="carousel">
+                                    <div id="containerCarousel"></div>
+                                    <img src="../images/fleche.jpg" alt="" class="bouton" id="d">
+                                    <img src="../images/fleche.jpg" alt="" class="bouton" id="g">
+                                </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <a href="#test" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+
+
+
+    <script src="../js/chambre.js"></script>
+
 </body>
 </html>

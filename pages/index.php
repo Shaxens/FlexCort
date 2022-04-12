@@ -22,7 +22,7 @@
             <!-- <div class="row"> -->
                 <!-- <div class="col" id="accueil"> -->
                     <h1>FlexCort</h1>
-                    <h3>Parce que trouver une escort n'a jamais été aussi simple</h3>
+                    <h3>Parce que trouver un(e) escort n'a jamais été aussi simple</h3>
                     <div class="row">
                         <div class="col"></div>
                         <div class="col-fluid">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col"></div>
                     </div>
-                    <a href="#" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
+                    <a href="#test" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
                 </div>
             </div>
         </div>
@@ -44,8 +44,13 @@
 
         
 <br>
-    <div class="container" >
+    <div class="container" id="test">
         <div class="col" id="contenu">
+            <div class="row">
+                <div class="col">
+                    <h1>Wouhouuu je suis une section</h1>
+                </div>
+            </div>
         <div class="row">
             <div class="col">
                 <h1>gjrezsp</h1>
