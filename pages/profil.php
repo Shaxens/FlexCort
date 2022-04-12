@@ -17,7 +17,9 @@
 <br>
 <div class="container-fluid compte">
     <div class="row">
-        <div class="col"></div>
+        <div class="col pinup1">
+            <img src="../images/pinup1.jpg" alt="">
+        </div>
         <div class="col-5">
             <form>
                 <div class="row">
@@ -52,7 +54,9 @@
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
         </div>
-        <div class="col"></div>
+        <div class="col pinup2">
+            <img src="../images/pinup2.jpg" alt="">
+        </div>
     </div>
 </div>
 <div class="container">
