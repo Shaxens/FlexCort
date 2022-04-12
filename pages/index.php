@@ -57,7 +57,6 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
             </div>
             <div class="col">
                 <h1>blabla</h1>
