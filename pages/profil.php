@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +11,7 @@
     <title>Nos chambres</title>
 </head>
 <body>
-    <?php include("navbar.php") ?>
+    <?php include("navbar.php")?>
 
 <br>
 <br>
@@ -63,7 +64,9 @@
     <div class="row">
         <div class="col">
         <?php
-        require_once "D:\Cours\php\FlexCort\pages\classes\Utilisateur.php";
+        require_once "classes/Utilisateur.php";
+        require_once "classes/UtilisateurManager.php";
+
 
         $utilisaTest = new Utilisateur("1234567890", "Lourd", "Jesus", "blabla@gmail.bla", "mdp1");
         echo $utilisaTest->getNom();
