@@ -53,8 +53,7 @@
             </div>
         <div class="row">
             <div class="col">
-                <h1>gjrezsp</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
+                <h1>Notre parcours</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>

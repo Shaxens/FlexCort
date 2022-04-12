@@ -156,6 +156,17 @@ header li a::after {
     color: black;
 }
 
+.pinup1 img {
+    transform: rotate(5deg);
+}
+
+.pinup2 img {
+    transform: rotate(345deg);
+    z-index: -1;
+    position: relative;
+    top: 30px;
+}
+
 .chateau {
     color: black;
 }
