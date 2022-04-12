@@ -10,7 +10,7 @@ document.body.onload = function() {
     container = document.getElementById("containerCarousel");
     g = document.getElementById("g");
     d = document.getElementById("d");
-    container.style.width = (500 * nbr) + "px";
+    container.style.width = (400 * nbr) + "px";
     for (i = 1; i <= nbr; i++) {
         div = document.createElement("div");
         div.className = "photo";
@@ -27,11 +27,11 @@ document.body.onload = function() {
 d.onclick = function() {
     if (position > -nbr + 1) {
         position--;
-        container.style.transform = "translate(" + position * 500 + "px)";
+        container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     } else {
         position = 0;
-        container.style.transform = "translate(" + -position * 500 + "px)";
+        container.style.transform = "translate(" + -position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
 }
@@ -39,11 +39,11 @@ d.onclick = function() {
 g.onclick = function() {
     if (position < 0) {
         position++;
-        container.style.transform = "translate(" + position * 500 + "px)";
+        container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     } else {
         position = -4;
-        container.style.transform = "translate(" + position * 500 + "px)";
+        container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
 

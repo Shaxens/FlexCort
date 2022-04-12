@@ -63,11 +63,12 @@ header li a::after {
 
 #carouselGlobal {
     padding: 50px 0 0 0;
+    text-align: center;
 }
 
 #carousel {
     height: 500px;
-    width: 500px;
+    width: 400px;
     border: solid 4px #fff;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -76,12 +77,12 @@ header li a::after {
 
 #containerCarousel {
     height: 500px;
-    width: 500px;
+    width: 400px;
 }
 
 .photo {
     height: 500px;
-    width: 500px;
+    width: 400px;
     margin: 0;
     display: inline-block;
     background-size: cover;
@@ -126,7 +127,38 @@ header li a::after {
     border-radius: 5px;
 }
 
+#defilement {
+    position: relative;
+    top: 80px;
+}
+
+#defilement img {
+    transform: rotate(180deg);
+    border-radius: 155px;
+    max-width: 140px;
+}
+
+#defilement img:hover {
+    /* transform: rotate(180deg) scale(1.1); */
+    animation: 1.2s linear 0s infinite alternate pulse;
+}
+
 #profil {
     position: absolute;
     right: 30px;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: rotate(180deg) scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
 }

@@ -17,7 +17,7 @@
 
     <div class="container-fluid colBk" id="carouselGlobal">
     <div class="row">
-        <div class="col" id="">
+        <div class="col" id="carouselCol">
             <!-- <div id="bk"><img class="img-responsive" src="../images/background.jpg" alt="Responsive image"></div> -->
             <!-- <div class="row"> -->
                 <!-- <div class="col" id="accueil"> -->
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col"></div>
                     </div>
-                    <br>
+                    <a href="#" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
                 </div>
             </div>
         </div>
