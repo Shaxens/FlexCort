@@ -46,6 +46,11 @@ header li a::after {
     color: white;
 }
 
+
+/* 
+* Image de background
+*/
+
 .colBk {
     margin: 0;
     padding: 0;
@@ -60,6 +65,12 @@ header li a::after {
     padding: 0;
     margin: 0;
 }
+
+
+/* 
+* Fin image de background
+* Gestion du carousel
+*/
 
 #carouselGlobal {
     padding: 50px 0 0 0;
@@ -87,6 +98,11 @@ header li a::after {
     display: inline-block;
     background-size: cover;
 }
+
+
+/* 
+* Gestion des flèches du carousel
+*/
 
 .bouton {
     position: absolute;
@@ -121,15 +137,26 @@ header li a::after {
     transition: all 0.3s ease;
 }
 
+
+/* 
+* Fin Gestion du carousel
+* Texte dans Index
+*/
+
 #contenu {
     color: black;
-    /* background-color: #e98a15e3; */
     border-radius: 5px;
 }
 
 #contenu h1 {
     padding-top: 50px;
 }
+
+
+/*
+* Fin texte Index
+* Flèche de défilement + animation pulse
+*/
 
 #defilement {
     position: relative;
@@ -146,6 +173,27 @@ header li a::after {
     /* transform: rotate(180deg) scale(1.1); */
     animation: 1.2s linear 0s infinite alternate pulse;
 }
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: rotate(180deg) scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
+}
+
+
+/*
+* Fin flèche de défilement
+* Création du compte
+*/
 
 #profil {
     position: absolute;
@@ -167,21 +215,37 @@ header li a::after {
     top: 30px;
 }
 
+
+/*
+* Fin création du compte
+* Carousel chambre
+*/
+
 .chateau {
     color: black;
 }
 
-@keyframes pulse {
+
+/* 
+* Mise en place du loader (test)
+*/
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
     0% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: rotate(180deg) scale3d(1, 1, 1);
-    }
-    50% {
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: rotate(180deg) scale3d(1.1, 1.1, 1.1);
+        transform: rotate(0deg);
     }
     100% {
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: rotate(180deg) scale3d(1, 1, 1);
+        transform: rotate(360deg);
     }
 }
