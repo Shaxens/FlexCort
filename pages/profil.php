@@ -67,12 +67,19 @@
         require_once "classes/Utilisateur.php";
         require_once "classes/UtilisateurManager.php";
 
+        
+        function ecrirerSurConsole(Utilisateur $utilisateur) {
 
+            $console = 'console.log(' . json_encode($utilisateur) . ');';
+            $console = sprintf('<script>%s</script>', $console);
+            echo $console;
+        }
+
+        $utilisateurManager = new UtilisateurManager;
         $utilisaTest = new Utilisateur("1234567890", "Lourd", "Jesus", "blabla@gmail.bla", "mdp1");
-        echo $utilisaTest->getNom();
-        echo $utilisaTest->getPrenom();
-        echo $utilisaTest->getMail();
-        echo $utilisaTest->getMdp();
+        ecrirerSurConsole($utilisaTest);
+        $utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
+
         ?>
         </div>
     </div>
