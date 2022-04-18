@@ -1,28 +1,33 @@
 <?php
+include "Bdd.php";
+include "Utilisateur.php";
+
 class UtilisateurManager {
     // ATTRIBUTS
-    private PDO $bdd;
+    private $connexionBdd;
 
     // CONSTRUCTEUR
-    public function __construct(){
-        $this->setBdd();
+    public function __construct()
+    {
+        $this->setConnexionBdd();
     }
 
     // SETTERS
-    public function setBdd()
+    public function setConnexionBdd()
     {
-        try
-        {
-            $connectionBdd = new PDO('mysql:host=localhost;dbname=oury16u_projetPhp', 'oury16u_appli', '32124584', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            $this->bdd = $connectionBdd;
-        } 
-        catch(Exception $e) 
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        $this->connexionBdd = new Bdd;
     }
 
+    // METHODES
+    public function add(Utilisateur $utilisateur)
+    {
+        $req = $this->connexionBdd->prepare('INSERT INTO UTILISATEUR(nom, prenom, mail, mdp) VALUES (:nom, :prenom, :mail, :mdp)');
+
+        $req->bindValue(':nom', $utilisateur->getNom(), PDO::PARAM_STR);
+        $req->bindValue(':prenom', $utilisateur->getPrenom(), PDO::PARAM_STR);
+        $req->bindValue(':mail', $utilisateur->getMail(), PDO::PARAM_STR);
+        $req->bindValue(':mdp', $utilisateur->getMdp(), PDO::PARAM_STR);
+
+        $req->execute();
+    }
 }
-
-
-?>

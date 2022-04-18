@@ -13,6 +13,10 @@
 
 <body>
 
+    <div class="loader">
+
+    </div>
+    
     <?php include("navbar.php") ?>
 
     <div class="container-fluid colBk" id="carouselGlobal">
