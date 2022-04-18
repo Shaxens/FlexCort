@@ -64,21 +64,12 @@
     <div class="row">
         <div class="col">
         <?php
-        include "classes/Utilisateur.php";
         include "classes/UtilisateurManager.php";
 
-        
-        function ecrirerSurConsole(Utilisateur $utilisateur) {
-
-            $console = 'console.log(' . json_encode($utilisateur) . ');';
-            $console = sprintf('<script>%s</script>', $console);
-            echo $console;
-        }
-
-        //$utilisateurManager = new UtilisateurManager;
+        $utilisateurManager = new UtilisateurManager;
         $utilisaTest = new Utilisateur('1234567891', 'Lourd', 'Jesus', 'filsDeDieu@god.win', 'trololo');
-        //ecrirerSurConsole($utilisaTest);
-        //$utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
+        echo $utilisaTest->getPrenom(), "<br>";
+        $utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
 
         ?>
         </div>
