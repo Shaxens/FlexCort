@@ -67,9 +67,7 @@
         include "classes/UtilisateurManager.php";
 
         $utilisateurManager = new UtilisateurManager;
-        $utilisaTest = new Utilisateur('1234567891', 'Lourd', 'Jesus', 'filsDeDieu@god.win', 'trololo');
-        echo $utilisaTest->getPrenom(), "<br>";
-        $utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
+
 
         ?>
         </div>

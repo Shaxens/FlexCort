@@ -1,17 +1,15 @@
 <?php
 class Utilisateur 
 {
-    // ATTRIBUTS    
-    private int $id;
+    // ATTRIBUTS
     private string $nom;
     private string $prenom;
     private string $mail;
     private string $mdp;
 
    // CONSTRUCTEUR
-   public function __construct(int $id, string $nom, string $prenom, string $mail, string $mdp)
+   public function __construct(string $nom, string $prenom, string $mail, string $mdp)
    {
-        $this->setId($id);
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setMail($mail);
@@ -19,7 +17,6 @@ class Utilisateur
    }
 
    // GETTERS
-   public function getId() {return $this->id;}
    public function getNom() {return $this->nom;}
    public function getPrenom() {return $this->prenom;}
    public function getMail() {return $this->mail;}
@@ -27,10 +24,6 @@ class Utilisateur
 
 
    // SETTERS
-   public function setId($id)
-   {
-        $this->id = $id;
-   }
    public function setNom($nom)
    {
         $this->nom = $nom;
