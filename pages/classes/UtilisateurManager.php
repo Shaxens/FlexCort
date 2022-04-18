@@ -9,27 +9,29 @@ class UtilisateurManager {
     // CONSTRUCTEUR
     public function __construct()
     {
-        $this->setConnexionBdd();
-    }
-
-    // SETTERS
-    public function setConnexionBdd()
-    {
         $this->connexionBdd = new Bdd;
     }
 
     // METHODES
     public function add(Utilisateur $utilisateur)
     {
-        echo "On va ajouter l'utilisateur : ", $utilisateur->getPrenom(), "<br>";
-        $req = $this->connexionBdd->prepare('INSERT INTO UTILISATEUR(nom, prenom, mail, mdp) VALUES (:nom, :prenom, :mail, :mdp)');
+        try {
+            echo '<br>', '...Ajout de l\'utilisateur ' , $utilisateur->getPrenom(), ' à la base de donné EN COURS... ';
+            $sql = "INSERT INTO UTILISATEUR(nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+            $req = $this->connexionBdd->preparerRequete($sql);
+            echo 'requete préparée !';
 
-        $req->bindValue(':nom', $utilisateur->getNom(), PDO::PARAM_STR);
-        $req->bindValue(':prenom', $utilisateur->getPrenom(), PDO::PARAM_STR);
-        $req->bindValue(':mail', $utilisateur->getMail(), PDO::PARAM_STR);
-        $req->bindValue(':mdp', $utilisateur->getMdp(), PDO::PARAM_STR);
+            $req->bindValue(1, $utilisateur->getNom(), PDO::PARAM_STR);
+            $req->bindValue(2, $utilisateur->getPrenom(), PDO::PARAM_STR);
+            $req->bindValue(3, $utilisateur->getMail(), PDO::PARAM_STR);
+            $req->bindValue(4, $utilisateur->getMdp(), PDO::PARAM_STR);
 
-        $req->execute();
-        echo "On ajoute l'utilisateur : ", $utilisateur->getPrenom(), "<br>";
+            $req->execute();
+            echo '<br>', ' ... Ajout de l\'utilisateur : ', $utilisateur->getPrenom(), ' TERMINE...';
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR utilisateurManager->add(Utilisateur ',$utilisateur->getPrenom(),')','<br>'.$e->getMessage();
+        }
     }
 }

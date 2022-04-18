@@ -21,12 +21,18 @@ class Bdd {
             $connectionBdd = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
             $connectionBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            echo 'Connexion à la base de données établie';
+            echo '<br>', '>>>>>>>>>>>>', '<br>', 'Connexion à la base de données établie !', '<br>', '<<<<<<<<<<<<', '<br>';
             $this->bdd = $connectionBdd;
         } 
         catch(PDOException $e)
         {
-            echo 'Echec de la connexion : '.$e->getMessage();
+            echo '<br>', '>>>>>>>>>>>>', '<br>', 'Echec de la connexion : ', '<br>'.$e->getMessage(),'<br>', '<<<<<<<<<<<<', '<br>';
         }
+    }
+
+    // METHOD
+    public function preparerRequete($sql): bool|PDOStatement
+    {
+        return $this->bdd->prepare($sql);
     }
 }
