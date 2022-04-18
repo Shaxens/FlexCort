@@ -14,7 +14,7 @@ class UtilisateurManager {
     }
 
     // METHODES
-    public function addUtilisateur(Utilisateur $utilisateur)
+    public function createUtilisateur(Utilisateur $utilisateur)
     {
         try
         {
@@ -57,6 +57,39 @@ class UtilisateurManager {
 
     public function deleteUtilisateur(Utilisateur $utilisateur)
     {
+        try
+        {
+            $sql = "DELETE FROM UTILISATEUR WHERE mail = ?";
 
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $utilisateur->getMail(), PDO::PARAM_STR);
+            $req->execute();
+
+            echo $utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' supprimé avec succès';
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR deleteUtilisateur'.$e->getMessage();
+        }
+    }
+
+    public function updateMailUtilisateur(string $mail, string $nouveauMail)
+    {
+        try
+        {
+            $sql = "UPDATE UTILISATEUR SET mail = ? WHERE mail = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $nouveauMail, PDO::PARAM_STR);
+            $req->bindValue(2, $mail, PDO::PARAM_STR);
+            $req->execute();
+
+            $utilisateur = $this->getUtilisateur($nouveauMail);
+            echo 'mail de ',$utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' modifié avec succès';
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR deleteUtilisateur'.$e->getMessage();
+        }
     }
 }

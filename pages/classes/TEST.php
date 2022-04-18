@@ -3,7 +3,7 @@ require_once 'UtilisateurManager.php';
 
 $utilisateurManager = new UtilisateurManager();
 
-$utilisatest = $utilisateurManager->getUtilisateur('bxl@enForce.be');
-echo $utilisatest->getNom();
-echo $utilisatest->getPrenom();
+$utilisatest = $utilisateurManager->getUtilisateur('lourd@jesus');
+
+$utilisateurManager->updateMailUtilisateur('lourd@jesus', 'theRealBoss@god.win');
 
