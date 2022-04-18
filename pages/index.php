@@ -35,12 +35,16 @@
                         </div>
                         <div class="col"></div>
                     </div>
-                    <a href="#test" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col-fluid">
+                            <a href="#test" id="defilement"><img src="../images/defilement.png" alt="fleche"></a>
+                        </div>
+                        <div class="col"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
         
 <br>
