@@ -64,8 +64,8 @@
     <div class="row">
         <div class="col">
         <?php
-        require_once "classes/Utilisateur.php";
-        require_once "classes/UtilisateurManager.php";
+        include "classes/Utilisateur.php";
+        include "classes/UtilisateurManager.php";
 
         
         function ecrirerSurConsole(Utilisateur $utilisateur) {
@@ -75,10 +75,10 @@
             echo $console;
         }
 
-        $utilisateurManager = new UtilisateurManager;
-        $utilisaTest = new Utilisateur("1234567890", "Lourd", "Jesus", "blabla@gmail.bla", "mdp1");
-        ecrirerSurConsole($utilisaTest);
-        $utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
+        //$utilisateurManager = new UtilisateurManager;
+        $utilisaTest = new Utilisateur('1234567891', 'Lourd', 'Jesus', 'filsDeDieu@god.win', 'trololo');
+        //ecrirerSurConsole($utilisaTest);
+        //$utilisateurManager->add($utilisaTest); // MARCHE PAS PUTAIN
 
         ?>
         </div>

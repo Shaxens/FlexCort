@@ -13,7 +13,7 @@ class Bdd {
     {
         try
         {
-            $connectionBdd = new PDO('mysql:host=localhost;dbname=oury16u_projetPhp', 'oury16u_appli', '32124584', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $connectionBdd = new PDO('mysql:host=devbdd.iutmetz.univ-lorraine.fr;dbname=oury16u_projetPhp', 'oury16u_appli', '32124584', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $this->bdd = $connectionBdd;
         } 
         catch(Exception $e) 
@@ -23,4 +23,3 @@ class Bdd {
     }
 
 }
-?>
