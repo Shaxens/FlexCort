@@ -13,13 +13,20 @@ class Bdd {
     {
         try
         {
-            $connectionBdd = new PDO('mysql:host=devbdd.iutmetz.univ-lorraine.fr;dbname=oury16u_projetPhp', 'oury16u_appli', '32124584', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $server = 'devbdd.iutmetz.univ-lorraine.fr';
+            $db = 'oury16u_projetPhp';
+            $user = 'oury16u_appli';
+            $pass = '32124584';
+
+            $connectionBdd = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
+            $connectionBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            echo 'Connexion à la base de données établie';
             $this->bdd = $connectionBdd;
         } 
-        catch(Exception $e) 
+        catch(PDOException $e)
         {
-            die('Erreur : '.$e->getMessage());
+            echo 'Echec de la connexion : '.$e->getMessage();
         }
     }
-
 }
