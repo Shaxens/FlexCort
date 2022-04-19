@@ -13,12 +13,16 @@
 
 <body>
 
-    <div class="loader">
 
-    </div>
     
     <?php include("navbar.php") ?>
+    <div class="background">
 
+<div class="loader">
+    <img src="../images/defilement.png" alt="">
+</div>
+
+</div>
     <div class="container-fluid colBk" id="carouselGlobal">
     <div class="row">
         <div class="col" id="carouselCol">
