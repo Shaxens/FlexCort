@@ -238,8 +238,12 @@ header li a::after {
     height: 100vh;
     background-color: black;
     z-index: 2000;
-    animation: gauche 2s linear;
-    opacity: 0;
+    /* animation: fadeOut 2s linear 0s forwards; */
+    animation-name: fadeOut, displayNone;
+    animation-duration: 2s, 0s;
+    animation-delay: 0s, 2s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: linear, linear;
 }
 
 .loader {
@@ -267,11 +271,18 @@ header li a::after {
     }
 }
 
-@keyframes gauche {
+@keyframes fadeOut {
     0% {
         opacity: 1;
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes displayNone {
+    100% {
+        width: 0;
+        height: 0;
     }
 }
