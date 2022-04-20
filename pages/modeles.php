@@ -12,8 +12,7 @@
 <body>
 <?php include("navbar.php") ?>
 
-<div id="bk">
-        <img class="img-responsive" src="../images/background.jpg" alt="Responsive image">
+<div class="container-fluid colBk">
     </div>
 </body>
 </html>

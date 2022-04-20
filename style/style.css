@@ -286,3 +286,11 @@ header li a::after {
         height: 0;
     }
 }
+
+.parallax-effect {
+    background-image: url("../images/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
