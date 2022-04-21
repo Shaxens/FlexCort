@@ -20,8 +20,8 @@
     <div class="background">
         <div class="loader"><img src="../images/defilement.png" alt=""></div>
     </div>
-    <!-- Carousel -->
-    <div class="container-fluid parallax-effect" id="carouselGlobal">
+    <!-- Carousel avec effet parallax-->
+    <div class="container-fluid parallax" id="carouselGlobal">
         <div class="row">
             <div class="col" id="carouselCol">
                 <h1>FlexCort</h1>
@@ -48,8 +48,6 @@
             </div>
         </div>
     </div>
-            <div style="text-align: center; font-family: 'Raleway', Arial, sans-serif">
-            Effet Parallaxe 
     <br>
         <!-- Texte sous carousel -->
     <div class="container" id="test">

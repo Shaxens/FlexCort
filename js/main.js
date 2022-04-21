@@ -25,24 +25,34 @@ document.body.onload = function() {
  */
 
 d.onclick = function() {
+    let background = document.getElementById("carouselGlobal");
     if (position > -nbr + 1) {
         position--;
+        background.classList.replace("parallaxVip", "parallax");
         container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
+        if (position == -4) {
+            background.classList.replace("parallax", "parallaxVip");
+
+        }
     } else {
         position = 0;
+        background.classList.replace("parallaxVip", "parallax");
         container.style.transform = "translate(" + -position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
 }
 
 g.onclick = function() {
+    let background = document.getElementById("carouselGlobal");
     if (position < 0) {
         position++;
+        background.classList.replace("parallaxVip", "parallax");
         container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     } else {
         position = -4;
+        background.classList.replace("parallax", "parallaxVip");
         container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
