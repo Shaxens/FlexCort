@@ -29,6 +29,7 @@ d.onclick = function() {
     if (position > -nbr + 1) {
         position--;
         background.classList.replace("parallaxVip", "parallax");
+        background.style.animationPlayState = 'running';
         container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
         if (position == -4) {
@@ -38,6 +39,7 @@ d.onclick = function() {
     } else {
         position = 0;
         background.classList.replace("parallaxVip", "parallax");
+        background.style.transition = "all 0.5s ease-in-out";
         container.style.transform = "translate(" + -position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
@@ -53,6 +55,7 @@ g.onclick = function() {
     } else {
         position = -4;
         background.classList.replace("parallax", "parallaxVip");
+        background.style.transition = "all 0.5s ease-in-out";
         container.style.transform = "translate(" + position * 400 + "px)";
         container.style.transition = "all 0.5s ease";
     }
