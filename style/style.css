@@ -73,7 +73,6 @@ header li a::after {
 */
 
 #carouselGlobal {
-    padding: 50px 0 0 0;
     text-align: center;
 }
 
@@ -84,6 +83,10 @@ header li a::after {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+}
+
+#carouselCol {
+    margin-top: 50px;
 }
 
 #containerCarousel {

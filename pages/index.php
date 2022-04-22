@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col-fluid">
-                        <h3 style="width: 100%; padding-bottom: 20px;">Les plus demandé(e)s : </h3>
+                        <h3 style="padding-bottom: 20px;">Les plus demandé(e)s : </h3>
                         <div id="carousel">
                             <div id="containerCarousel"></div>
                             <img src="../images/fleche.jpg" alt="" class="bouton" id="d">
