@@ -23,22 +23,22 @@
                 <div class="row">
                 <div class="col">
                     <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" placeholder="Jacques" id="prenom" required>
+                    <input type="text" class="form-control" placeholder="Jacques" id="prenom" name="prenom" required>
                 </div>
                 <div class="col">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" placeholder="Dupont" id="nom" required>
+                    <input type="text" class="form-control" placeholder="Dupont" id="nom" name="nom" required>
                 </div>
                 </div>
                 <br>
                 <div class="mb-3">
                     <label for="email" class="form-label">Adresse mail</label>
-                    <input type="email" class="form-control" id="email" placeholder="FlexCort@gmail.com" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="FlexCort@gmail.com" required>
                     <div id="emailHelp" class="form-text">Votre adresse mail ne sera pas divulguée.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe </label>
-                    <input type="password" class="form-control" id="password" required>
+                    <input type="password" class="form-control" id="password" name="mdp" required>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="checkbox" required>
@@ -49,7 +49,7 @@
 
                     <input type="date" id="date" name="date" value="" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <button type="submit" class="btn btn-primary" name = "btnEnvoyer" onclick=inscription()>Envoyer</button>
             </form>
         </div>
         <div class="col pinup2">
@@ -63,13 +63,27 @@
         <?php
         include "classes/UtilisateurManager.php";
 
-        $utilisateurManager = new UtilisateurManager;
-
 
         ?>
         </div>
     </div>
 </div>
+
+    <script>
+        function inscription()
+        {
+            <?php
+            $utilisateurManager = new UtilisateurManager;
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $email = $_POST['email'];
+            $mdp = $_POST['mdp'];
+            $utilisateur = new Utilisateur($nom,$prenom,$email,$mdp);
+
+            $utilisateurManager->createUtilisateur($utilisateur);
+            ?>
+        }
+    </script>
 
 </body>
 </html>

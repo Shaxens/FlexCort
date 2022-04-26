@@ -20,6 +20,7 @@ document.body.onload = function() {
     }
 }
 
+
 /*
  * On écoute les clics sur le carousel
  */
