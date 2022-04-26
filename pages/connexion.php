@@ -13,6 +13,9 @@
 <body>
     <?php include("navbar.php")?>
 
+    <div>
+        <img src="../images/connexion/doigts.png" alt="" id="doigts">
+    </div>
     <div class="container-fluid compte">
         <h2 style="text-align: center;">Connexion</h2>
         <div class="row">
