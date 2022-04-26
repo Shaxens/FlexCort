@@ -205,6 +205,13 @@ header li a::after {
     z-index: -1;
 }
 
+#shh {
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    z-index: -1;
+}
+
 
 /* 
 * Création du compte
@@ -217,7 +224,7 @@ header li a::after {
 
 .compte {
     color: black;
-    padding-top: 360px;
+    padding-top: 320px;
 }
 
 .pinup1 img {
