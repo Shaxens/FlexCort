@@ -25,6 +25,7 @@
                             <input type="text" name="mail" class="form-control" id="email" placeholder="FlexCort@gmail.com" required>
                         </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label for="password" class="form-label">Mot de passe :</label>
@@ -33,7 +34,7 @@
                     </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Envoyer</button>
-
+                <p>Vous n'avez pas de compte ? Vous pouvez en créer un <a href="creationCompte.php">ici</a> !</p>
                 </form>
             </div>
             <div class="col"></div>
