@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <button type="submit" class="btn btn-primary" name="btnConnexion">Envoyer</button>
                 <p>Vous n'avez pas de compte ? Vous pouvez en créer un <a href="creationCompte.php">ici</a> !</p>
                 </form>
             </div>
