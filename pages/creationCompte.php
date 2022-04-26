@@ -13,9 +13,6 @@
 <body>
     <?php include("navbar.php")?>
 
-<br>
-<br>
-<br>
 <div class="container-fluid compte">
     <div class="row">
         <div class="col pinup1">
@@ -36,8 +33,8 @@
                 <br>
                 <div class="mb-3">
                     <label for="email" class="form-label">Adresse mail</label>
-                    <input type="email" class="form-control" id="email" required>
-                    <div id="emailHelp" class="form-text">Nous ne partagerons pas votre adresse mail.</div>
+                    <input type="email" class="form-control" id="email" placeholder="FlexCort@gmail.com" required>
+                    <div id="emailHelp" class="form-text">Votre adresse mail ne sera pas divulguée.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe </label>

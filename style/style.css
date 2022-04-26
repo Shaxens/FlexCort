@@ -205,6 +205,7 @@ header li a::after {
 
 .compte {
     color: black;
+    padding-top: 100px;
 }
 
 .pinup1 img {

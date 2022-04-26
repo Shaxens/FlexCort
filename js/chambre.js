@@ -14,7 +14,7 @@ document.body.onload = function() {
     for (i = 1; i <= nbr; i++) {
         div = document.createElement("div");
         div.className = "photo";
-        div.style.backgroundImage = "url('../images/chateau" + i + ".jpg')";
+        div.style.backgroundImage = "url('../images/chateau/chateau" + i + ".jpg')";
         div.setAttribute("id", "image-" + i);
         container.appendChild(div);
     }

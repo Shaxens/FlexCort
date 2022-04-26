@@ -13,7 +13,16 @@
 <body>
     <?php include("navbar.php") ?>
 
-    <div class="container-fluid colBk">
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                
+            </div>
+            <div class="col"></div>
+        </div>
     </div>
+
+
 </body>
 </html>
