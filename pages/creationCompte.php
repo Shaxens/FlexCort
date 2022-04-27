@@ -13,7 +13,7 @@
 <body>
     <?php include("navbar.php")?>
 
-<div class="container-fluid compte">
+<div class="container-fluid connexion">
     <div class="row">
         <div class="col pinup1">
             <img src="../images/pinup1.jpg" alt="">
@@ -21,14 +21,14 @@
         <div class="col-5">
             <form>
                 <div class="row">
-                <div class="col">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" placeholder="Jacques" id="prenom" name="prenom" required>
-                </div>
-                <div class="col">
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control" placeholder="Dupont" id="nom" name="nom" required>
-                </div>
+                    <div class="col">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" class="form-control" placeholder="Jacques" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="col">
+                        <label for="nom">Nom</label>
+                        <input type="text" class="form-control" placeholder="Dupont" id="nom" name="nom" required>
+                    </div>
                 </div>
                 <br>
                 <div class="mb-3">

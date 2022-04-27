@@ -214,6 +214,43 @@ header li a::after {
 
 
 /* 
+* Fin connexion au compte
+* Mon compte
+*/
+
+.blueBk {
+    position: fixed;
+    background-color: darkcyan;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 96vh;
+    width: 25%;
+    margin-top: 50px;
+    z-index: 100;
+}
+
+.blueBk ul {
+    list-style: none;
+    font-size: 1.2rem;
+    padding-left: 60px;
+}
+
+.blueBk h2 {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.blueBk li {
+    padding-bottom: 15px;
+}
+
+.blueBk ul li a {
+    color: white;
+}
+
+
+/*
+* Fin mon compte
 * Création du compte
 */
 
@@ -222,9 +259,14 @@ header li a::after {
     right: 30px;
 }
 
-.compte {
+.connexion {
     color: black;
     padding-top: 320px;
+}
+
+.compte {
+    color: black;
+    padding-top: 100px;
 }
 
 .pinup1 img {

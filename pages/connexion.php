@@ -17,7 +17,7 @@
         <img src="../images/connexion/doigts.png" alt="" id="doigts">
         <img src="../images/connexion/shh.png" alt="" id="shh">
     </div>
-    <div class="container-fluid compte">
+    <div class="container-fluid connexion">
         <h2 style="text-align: center;">Connexion</h2>
         <div class="row">
             <div class="col"></div>
