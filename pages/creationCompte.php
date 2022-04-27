@@ -19,7 +19,7 @@
             <img src="../images/pinup1.jpg" alt="">
         </div>
         <div class="col-5">
-            <form>
+            <form action="classes/recupFormulaire.php" method="post">
                 <div class="row">
                     <div class="col">
                         <label for="prenom">Prénom</label>
@@ -49,7 +49,7 @@
 
                     <input type="date" id="date" name="date" value="" required>
                 </div>
-                <button type="submit" class="btn btn-primary" name = "btnEnvoyer" onclick=inscription()>Envoyer</button>
+                <button type="submit" class="btn btn-primary" name = "btnEnvoyer">Envoyer</button>
             </form>
         </div>
         <div class="col pinup2">
@@ -60,30 +60,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
-        <?php
-        include "classes/UtilisateurManager.php";
 
-
-        ?>
         </div>
     </div>
 </div>
 
-    <script>
-        function inscription()
-        {
-            <?php
-            $utilisateurManager = new UtilisateurManager;
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $email = $_POST['email'];
-            $mdp = $_POST['mdp'];
-            $utilisateur = new Utilisateur($nom,$prenom,$email,$mdp);
-
-            $utilisateurManager->createUtilisateur($utilisateur);
-            ?>
-        }
-    </script>
 
 </body>
 </html>

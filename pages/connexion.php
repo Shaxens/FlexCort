@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-5">
-                <form>
+                <form action="classes/recupFormulaire.php" method="post">
                     <div class="row">
                         <div class="col">
                             <label for="mail">Adresse Mail :</label>
