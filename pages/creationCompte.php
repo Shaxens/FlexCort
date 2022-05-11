@@ -68,3 +68,19 @@
 
 </body>
 </html>
+
+<?php
+
+require_once 'classes/UtilisateurManager.php';
+
+$utilisateurManager = new UtilisateurManager();
+
+if (isset($_POST['btnEnvoyer']))
+{
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $mdp = $_POST['mdp'];
+    $utilisateur = new Utilisateur($nom,$prenom,$email,$mdp);
+    $utilisateurManager->createUtilisateur($utilisateur);
+}

@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-5">
-                <form action="classes/recupFormulaire.php" method="post">
+                <form action="connexion.php" method="post">
                     <div class="row">
                         <div class="col">
                             <label for="mail">Adresse Mail :</label>
@@ -44,6 +44,29 @@
             <div class="col"></div>
         </div>
     </div>
-
 </body>
 </html>
+
+<?PHP
+
+require_once 'classes/UtilisateurManager.php';
+
+$utilisateurManager = new UtilisateurManager();
+
+if (isset($_POST['btnConnexion']))
+{
+    $email = htmlentities($_POST['mail']);
+    $mdp = $_POST['password'];
+    $utilisateur = $utilisateurManager->getUtilisateur($email);
+    if ($mdp == $utilisateur->getMdp())
+    {
+        echo $utilisateur->getPrenom() . "identifié";
+        $_SESSION['utilisateurConnecte'] = $utilisateur;
+        header('Location: http://localhost/index.php');
+    }
+    else
+    {
+        echo "mdp incorrect";
+    }
+}
+

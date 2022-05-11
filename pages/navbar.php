@@ -14,7 +14,17 @@
         <li><a href="./modeles.php">Nos Modèles</a></li>
         <li><a href="./chambres.php">Nos chambres</a></li>
         <li><a href="./contact.php">Contact</a></li>
-        <li><a href="./connexion.php" id="profil">Mon compte</a></li>
+        <?php
+        if (!isset($_SESSION['utilisateurConnecte']))
+        {
+            echo '<li><a href="./connexion.php" id="profil">Mon compte</a></li>';
+        }
+        else
+        {
+            echo '<li><a href="./compte.php" id="profil">Mon compte</a></li>';
+        }
+        ?>
+
     </ul>
 </nav>
 </header>
