@@ -37,21 +37,24 @@
                     <div class="row">
                         <div class="col">
                             <label for="prenom">Prénom :</label>
-                            <input type="text" class="form-control" placeholder="Jacques" id="prenom" name="prenom" required>
+                            <input type="text" class="form-control" placeholder="Jacques" id="prenom" name="prenom">
                         </div>
                         <div class="col">
                             <label for="nom">Nom :</label>
-                            <input type="text" class="form-control" placeholder="Dupont" id="nom" name="nom" required>
+                            <input type="text" class="form-control" placeholder="Dupont" id="nom" name="nom">
                         </div>
                     </div>
                     <br>
                     <div class="mb-3">
                         <label for="email" class="form-label">Adresse mail :</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="FlexCort@gmail.com" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="FlexCort@gmail.com">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Mot de passe :</label>
-                        <input type="password" class="form-control" id="password" name="mdp" required>
+                        <input type="password" class="form-control" id="password" name="mdp">
+                        <br>
+                        <button type="submit" class="btn btn-primary" name="btnDeconnexion">Déconnexion</button>
+                    
                     </div>
                 </form>
 
@@ -63,5 +66,18 @@
             <div class="col"></div>
         </div>
     </div>
+
+
+
 </body>
 </html>
+
+<?php 
+    if (isset($_GET['btnDeconnexion'])) {
+        $_SESSION = array();
+        unset($_COOKIE);
+        setcookie(session_name(), '', time()- 47000);
+        session_destroy();
+        header("Refresh:0; url=index.php");
+    }
+    ?>

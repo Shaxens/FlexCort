@@ -62,6 +62,9 @@ if (isset($_POST['btnConnexion']))
     if ($mdp == $utilisateur->getMdp())
     {
         $_SESSION['utilisateurConnecte'] = $utilisateur;
+        $_SESSION['connectOK'] = true;
+        echo $_SESSION['utilisateurConnecte']->getPrenom() . ' connecté';
+        header("Refresh:0; url=index.php");
 
     }
     else
