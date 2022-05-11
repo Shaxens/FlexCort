@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -60,13 +61,13 @@ if (isset($_POST['btnConnexion']))
     $utilisateur = $utilisateurManager->getUtilisateur($email);
     if ($mdp == $utilisateur->getMdp())
     {
-        echo $utilisateur->getPrenom() . "identifié";
         $_SESSION['utilisateurConnecte'] = $utilisateur;
-        header('Location: http://localhost/index.php');
+
     }
     else
     {
         echo "mdp incorrect";
     }
 }
+?>
 
