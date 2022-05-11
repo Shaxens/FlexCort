@@ -76,8 +76,8 @@
     if (isset($_GET['btnDeconnexion'])) {
         $_SESSION = array();
         unset($_COOKIE);
-        setcookie(session_name(), '', time()- 47000);
+        setcookie(session_name(), '', time()- 86400);
         session_destroy();
-        header("Refresh:0; url=index.php");
+        header("Refresh:0; url=index.php"); // On rafraichit la page et on redirige vers la page index, permet d'effectuer correctement le unset des cookies
     }
     ?>

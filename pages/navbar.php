@@ -1,6 +1,6 @@
 <?php
 session_start([
-    'cookie_lifetime' => 30,
+    'cookie_lifetime' => 86400,
 ]);
 ?>
 <!DOCTYPE html>
