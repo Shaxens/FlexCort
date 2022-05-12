@@ -4,7 +4,7 @@ include __DIR__ . './../entity/Utilisateur.php';
 
 class UtilisateurManager {
     // ATTRIBUTS
-    private $connexionBdd;
+    private Bdd $connexionBdd;
 
     // CONSTRUCTEUR
     public function __construct()
