@@ -20,9 +20,9 @@
     <!-- Gestion du Loader -->
     <div class="background container-fluid h-100">
         <div class="row h-100 align-items-center">
-            <div class="col-5"></div>
-            <div class="loader col col-sm-3 col-xl w-100"><img src="../images/defilement.png" alt=""></div>
-            <div class="col-5"></div>
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5"></div>
+            <div class="loader col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2 w-100"><img src="../images/defilement.png" alt=""></div>
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5"></div>
         </div>
     </div>
     <!-- Carousel avec effet parallax-->
