@@ -18,8 +18,12 @@
     
     <?php include("navbar.php") ?>
     <!-- Gestion du Loader -->
-    <div class="background">
-        <div class="loader"><img src="../images/defilement.png" alt=""></div>
+    <div class="background container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-5"></div>
+            <div class="loader col col-sm-3 col-xl w-100"><img src="../images/defilement.png" alt=""></div>
+            <div class="col-5"></div>
+        </div>
     </div>
     <!-- Carousel avec effet parallax-->
     <div class="container-fluid parallax" id="carouselGlobal">
