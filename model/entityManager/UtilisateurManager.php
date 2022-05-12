@@ -1,6 +1,6 @@
 <?php
 include "Bdd.php";
-include "Utilisateur.php";
+include __DIR__ . './../entity/Utilisateur.php';
 
 class UtilisateurManager {
     // ATTRIBUTS
@@ -9,8 +9,14 @@ class UtilisateurManager {
     // CONSTRUCTEUR
     public function __construct()
     {
-        $this->connexionBdd = new Bdd;
-        echo 'utilisateurManager INITIALISE','<br>';
+        try {
+            $this->connexionBdd = new Bdd;
+            echo 'utilisateurManager INITIALISE','<br>';
+        } catch (PDOException $e)
+        {
+            echo 'Erreur initilalisation utilisateur manager -> ' . $e->getMessage();
+        }
+
     }
 
     // METHODES
@@ -39,14 +45,14 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "SELECT mail, mdp, nom, prenom FROM UTILISATEUR WHERE UTILISATEUR.mail = ?";
+            $sql = "SELECT mail, mdp, nom, prenom, estAdmin FROM UTILISATEUR WHERE UTILISATEUR.mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $mail, PDO::PARAM_STR);
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Utilisateur($resultat->nom, $resultat->prenom, $resultat->mail, $resultat->mdp);
+            return new Utilisateur($resultat->nom, $resultat->prenom, $resultat->mail, $resultat->mdp, $resultat->estAdmin);
         }
         catch (PDOException $e)
         {

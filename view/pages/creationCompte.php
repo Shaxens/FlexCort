@@ -11,7 +11,7 @@
     <title>Nos chambres</title>
 </head>
 <body>
-    <?php include("navbar.php")?>
+    <?php include("navbar.php") ?>
 
 <div class="container-fluid connexion">
     <div class="row">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="checkbox" required>
-                    <label class="form-check-label" for="checkbox">J'accepte les <a href="./cgv.php"> conditions d'utilisations et de ventes</a></label>
+                    <label class="form-check-label" for="checkbox">J'accepte les <a href="cgv.php"> conditions d'utilisations et de ventes</a></label>
                 </div>
                 <div class="mb-3">
                     <label for="date">Entrez votre date de naissance : </label>
