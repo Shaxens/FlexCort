@@ -6,14 +6,16 @@ class Utilisateur
     private string $prenom;
     private string $mail;
     private string $mdp;
+    private int $estAdmin;
 
    // CONSTRUCTEUR
-   public function __construct(string $nom, string $prenom, string $mail, string $mdp)
+   public function __construct(string $nom, string $prenom, string $mail, string $mdp, int $estAdmin)
    {
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setMail($mail);
         $this->setMdp($mdp);
+        $this->setEstAdmin($estAdmin);
    }
 
    // GETTERS
@@ -21,6 +23,16 @@ class Utilisateur
    public function getPrenom() {return $this->prenom;}
    public function getMail() {return $this->mail;}
    public function getMdp() {return $this->mdp;}
+   public function getEstAdmin() {
+       if ($this->estAdmin == 0)
+       {
+           return false;
+       }
+       elseif ($this->estAdmin == 1)
+       {
+           return true;
+       }
+   }
 
 
    // SETTERS
@@ -39,7 +51,11 @@ class Utilisateur
    public function setMdp($mdp)
    {
         $this->mdp = $mdp;
-   } 
+   }
+   public function setEstAdmin($estAdmin)
+   {
+       $this->estAdmin = $estAdmin;
+   }
 
    // METHODES
    public function hydrate(array $donnees)

@@ -12,7 +12,7 @@
     <title>FlexCort</title>
 </head>
 <body>
-    <?php include("navbar.php")?>
+    <?php include("navbar.php") ?>
 
     <div>
         <img src="../images/connexion/doigts.png" alt="" id="doigts">
@@ -42,35 +42,12 @@
                 <p>Vous n'avez pas de compte ? Vous pouvez en créer un <a href="creationCompte.php">ici</a> !</p>
                 </form>
             </div>
-            <div class="col"></div>
+            <div class="col"><?php echo __DIR__?></div>
         </div>
     </div>
 </body>
 </html>
 
-<?PHP
-
-require_once 'classes/UtilisateurManager.php';
-
-$utilisateurManager = new UtilisateurManager();
-
-if (isset($_POST['btnConnexion']))
-{
-    $email = htmlentities($_POST['mail']);
-    $mdp = $_POST['password'];
-    $utilisateur = $utilisateurManager->getUtilisateur($email);
-    if ($mdp == $utilisateur->getMdp())
-    {
-        $_SESSION['utilisateurConnecte'] = $utilisateur;
-        $_SESSION['connectOK'] = true;
-        echo $_SESSION['utilisateurConnecte']->getPrenom() . ' connecté';
-        header("Refresh:0; url=index.php");
-
-    }
-    else
-    {
-        echo "mdp incorrect";
-    }
-}
-?>
-
+<?php
+require_once __DIR__ . './../../controler/pageConnexionControler.php';
+connexion();
