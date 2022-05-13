@@ -1,5 +1,5 @@
 <?php
-include "Bdd.php";
+require_once "Bdd.php";
 include __DIR__ . './../entity/Utilisateur.php';
 
 class UtilisateurManager {
@@ -61,31 +61,31 @@ class UtilisateurManager {
         }
     }
 
-    /*public function getAllUtilisateur()
+    public function getAllUtilisateur(): int|array
     {
+        $listeUtilisateur[] = array();
+        $index = 0;
         try
         {
-            $listeUtilisateur = array();
-
-            $sql = "SELECT mail FROM UTILISATEUR";
+            $sql = "SELECT * FROM UTILISATEUR";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->execute();
-            $resultat = $req->fetchAll();
 
-            foreach ($resultat as &$mail)
-            {
-                settype($mail,type: "string");
-                $utilisateur = $this->getUtilisateur($mail);
-                $listeUtilisateur.array_push($utilisateur);
-                echo $utilisateur->getPrenom();
+            //tant qu‘il y a des lignes en BDD
+            while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
+                //on ajoute l’entité à un tableau d’ingrédients
+                $listeUtilisateur[$index] = new Utilisateur($resultat->nom, $resultat->prenom, $resultat->mail, $resultat->mdp, $resultat->estAdmin);
+                $index +=1;
             }
+            return $listeUtilisateur;
         }
         catch (PDOException $e)
         {
-            echo 'ERREUR getUtilisateur'.$e->getMessage();
+            echo 'ERREUR getAllUtilisateur'.$e->getMessage();
+            return -1;
         }
-    }*/
+    }
 
     public function deleteUtilisateur(Utilisateur $utilisateur)
     {
