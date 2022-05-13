@@ -1,6 +1,7 @@
 <?php
 
 require_once "Bdd.php";
+require_once __DIR__ . './../utils/DateSql.php';
 include __DIR__ . './../entity/Modele.php';
 
 class ModeleManager
@@ -68,8 +69,42 @@ class ModeleManager
         }
     }
 
-    public function createModele()
+    public function createModele(String $pseudo, int $annee, int $mois, int $jour)
     {
+        try
+        {
+            $date = DateSql::creerDateFormatSqlValide($annee, $mois, $jour);
+            $sql = "INSERT INTO MODELE(pseudo, dateNaissance) VALUES (?, ?)";
 
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $pseudo, PDO::PARAM_STR);
+            $req->bindValue(2, $date, PDO::PARAM_STR);
+            $req->execute();
+
+            echo $pseudo. ' née le '. $date. ' ajouté avec succès';
+        } catch (PDOException $e) {
+            echo 'ERREUR ajout a la base de donnee :'.$e->getMessage();
+        } catch (InvalidArgumentException $iae)
+        {
+            echo 'ERREUR creation date de naissance :'.$iae->getMessage();
+        }
+    }
+
+    public function deleteModele(int $idModele)
+    {
+        try
+        {
+            $sql = "DELETE FROM MODELE WHERE idModele = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $idModele, PDO::PARAM_INT);
+            $req->execute();
+
+            echo 'suppression du modele reussi';
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR deleteModele'.$e->getMessage();
+        }
     }
 }

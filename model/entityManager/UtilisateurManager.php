@@ -33,7 +33,7 @@ class UtilisateurManager {
             $req->bindValue(4, $utilisateur->getMdp(), PDO::PARAM_STR);
             $req->execute();
 
-            echo $utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' ajouté avec succès';
+            echo $utilisateur->getNom(). ' '. $utilisateur->getPrenom(). ' ajouté avec succès';
         }
         catch (PDOException $e)
         {
