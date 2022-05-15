@@ -173,10 +173,10 @@ header li a::after {
 
 #defilement img:hover {
     /* transform: rotate(180deg) scale(1.1); */
-    animation: 1.2s linear 0s infinite alternate pulse;
+    animation: 1.2s linear 0s infinite alternate pulseFleche;
 }
 
-@keyframes pulse {
+@keyframes pulseFleche {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
         transform: rotate(180deg) scale3d(1, 1, 1);
@@ -352,4 +352,32 @@ header li a::after {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+@keyframes zoomIn {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+
+.zoomCard:hover {
+    animation: 0.3s linear 0s alternate zoomIn;
+    animation-fill-mode: forwards;
+}
+
+.zoomCard {
+    animation: 0.3s linear 0s alternate zoomOut;
+    animation-fill-mode: forwards;
 }

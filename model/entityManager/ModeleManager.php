@@ -60,6 +60,7 @@ class ModeleManager
                 $listeModele[$index] = new Modele($resultat->idModele, $resultat->pseudo, $resultat->dateNaissance);
                 $index +=1;
             }
+
             return $listeModele;
         }
         catch (PDOException $e)
