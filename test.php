@@ -3,7 +3,6 @@ require_once 'model/includeModel.php';
 
 $modeleManager = new ModeleManager();
 
-
-$modeleManager->deleteModele(21);
+$modeleManager->updateDateNaissanceModele(7, 1992, 03, 07);
 
 

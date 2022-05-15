@@ -101,11 +101,71 @@ class ModeleManager
             $req->bindValue(1, $idModele, PDO::PARAM_INT);
             $req->execute();
 
-            echo 'suppression du modele reussi';
         }
         catch (PDOException $e)
         {
             echo 'ERREUR deleteModele'.$e->getMessage();
+        }
+    }
+
+    public function updateIdModele(int $idModele, int $newIdModele)
+    {
+        try
+        {
+            $sql = "UPDATE MODELE SET idModele = ? WHERE idModele = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $newIdModele, PDO::PARAM_INT);
+            $req->bindValue(2, $idModele, PDO::PARAM_INT);
+            $req->execute();
+
+            $modele = $this->getModeleById($newIdModele);
+            echo 'Id de ',$modele->getPseudo(), ' modifié avec succès';
+        }
+        catch (PDOException $e)
+        {
+            echo ' ERREUR de updateIdModele '.$e->getMessage();
+        }
+    }
+
+    public function updatePseudoModele(int $idModele, string $newPseudoModele)
+    {
+        try
+        {
+            $sql = "UPDATE MODELE SET pseudo = ? WHERE idModele = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $newPseudoModele, PDO::PARAM_STR);
+            $req->bindValue(2, $idModele, PDO::PARAM_INT);
+            $req->execute();
+
+            $modele = $this->getModeleById($idModele);
+            echo 'Pseudo de ',$modele->getPseudo(), ' modifié avec succès';
+        }
+        catch (PDOException $e)
+        {
+            echo ' ERREUR updatePseudoModele '.$e->getMessage();
+        }
+    }
+
+    public function updateDateNaissanceModele(int $idModele, int $annee, int $mois, int $jour)
+    {
+        try
+        {
+            $newDateNaissanceModele = DateSql::creerDateFormatSqlValide($annee, $mois, $jour);
+            $sql = "UPDATE MODELE SET dateNaissance = ? WHERE idModele = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $newDateNaissanceModele, PDO::PARAM_STR);
+            $req->bindValue(2, $idModele, PDO::PARAM_INT);
+            $req->execute();
+
+            $modele = $this->getModeleById($idModele);
+            echo 'Date de naissance de ',$modele->getPseudo(), ' modifié avec succès';
+        }
+        catch (PDOException $e)
+        {
+            echo ' ERREUR updateDateNaissanceModele '.$e->getMessage();
         }
     }
 }
