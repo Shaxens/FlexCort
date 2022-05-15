@@ -21,7 +21,6 @@ class Bdd {
             $connectionBdd = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
             $connectionBdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            echo '<br>', '>>>>>>>>>>>>', '<br>', 'Connexion à la base de données établie !', '<br>', '<<<<<<<<<<<<', '<br>';
             $this->bdd = $connectionBdd;
         } 
         catch(PDOException $e)

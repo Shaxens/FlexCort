@@ -1,5 +1,5 @@
 <?PHP
-require_once __DIR__ . './../model/entityManager/UtilisateurManager.php';
+require_once __DIR__ . './../model/includeModel.php';
 
 function connexion()
 {

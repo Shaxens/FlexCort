@@ -14,7 +14,6 @@ class ModeleManager
     {
         try {
             $this->connexionBdd = new Bdd;
-            echo 'modeleManager INITIALISE','<br>';
         } catch (PDOException $e)
         {
             echo 'Erreur initilalisation modelManager -> ' . $e->getMessage();
@@ -54,9 +53,8 @@ class ModeleManager
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->execute();
 
-            //tant qu‘il y a des lignes en BDD
+
             while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
-                //on ajoute l’entité à un tableau d’ingrédients
                 $listeModele[$index] = new Modele($resultat->idModele, $resultat->pseudo, $resultat->dateNaissance);
                 $index +=1;
             }
@@ -166,6 +164,32 @@ class ModeleManager
         catch (PDOException $e)
         {
             echo ' ERREUR updateDateNaissanceModele '.$e->getMessage();
+        }
+    }
+
+    public function creerListeModeleFormatJson()
+    {
+
+        try
+        {
+            $sql = "SELECT * FROM MODELE";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->execute();
+            $tableau = [];
+
+            //tant qu‘il y a des lignes en BDD
+            while ($resultat = $req->fetch(PDO::FETCH_ASSOC)) {
+                $tableau[] = $resultat;
+            }
+
+            $json = json_encode($tableau);
+            return $json;
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR getAllModele'.$e->getMessage();
+            return -1;
         }
     }
 }

@@ -11,7 +11,7 @@ class UtilisateurManager {
     {
         try {
             $this->connexionBdd = new Bdd;
-            echo 'utilisateurManager INITIALISE','<br>';
+
         } catch (PDOException $e)
         {
             echo 'Erreur initilalisation utilisateur manager -> ' . $e->getMessage();
