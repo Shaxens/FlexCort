@@ -1,9 +1,9 @@
 let afficherTaches = document.getElementById("afficherCard");
-afficherCard.innerHTML = '';
+afficherCard.innerHTML = ``;
 
 
 
-window.onload = function() {
+document.body.onload = function() {
     let listeModeles = [];
     const getPhp = "../../model/entityManager/ModeleManager.php"
     fetch(getPhp, {
@@ -21,7 +21,7 @@ window.onload = function() {
         console.log(listeModeles);
 
         for (modele of listeModeles) {
-            if (modele.id == 0) {
+            if (modele.length == 1) {
                 let modeleCard3 = `
                 <div class="row">
                     <div class="col-3"></div>
@@ -39,7 +39,7 @@ window.onload = function() {
                     </div>
                 </div>
                 `;
-                afficherCard.innerHTML += modeleCard3;
+                document.afficherCard.innerHTML += modeleCard3;
             }
             let modeleCard = `
             <div class="col">
@@ -73,10 +73,11 @@ window.onload = function() {
                     </div>
                 </div>
                 `;
-                afficherCard.innerHTML += modeleCard3;
+                document.afficherCard.innerHTML += modeleCard3;
             } else {
-                afficherCard.innerHTML += modeleCard
+                document.afficherCard.innerHTML += modeleCard;
             }
+            document.afficherCard.innerHTML;
         }
 
     });
