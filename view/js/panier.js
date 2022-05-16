@@ -1,31 +1,20 @@
 function afficherPanier() {
-    let afficherPanier = document.getElementById("panier");
+    let afficherPanier = document.getElementById("drawer");
     let afficherCard = document.getElementById("afficherCard");
-    let div = `<div id="drawer" class="drawer"><button onclick="fermerPanier()" class="btn fa-solid fa-xmark fa-3x" id="croix"></button></div>`;
+    let bouton = document.getElementById("croix");
     afficherCard.style.opacity = "0.7";
-    afficherPanier.innerHTML += div;
-    afficherPanier.innerHTML += croix;
+    afficherPanier.style.display = "block";
+    afficherPanier.style.width = "400px";
+    bouton.style.display = "block"
+
 }
 
 function fermerPanier() {
-    let panier = document.getElementById("panier");
     let masquerPanier = document.getElementById("drawer");
     let afficherCard = document.getElementById("afficherCard");
     let bouton = document.getElementById("croix");
     masquerPanier.style.width = "0";
     bouton.style.display = "none"
 
-    // panier.removeChild(masquerPanier);
     afficherCard.style.opacity = "1";
 }
-
-// function fermerPanier() {
-//     let panier = document.getElementById("panier");
-//     let masquerPanier = document.getElementById("drawer");
-//     let afficherCard = document.getElementById("afficherCard");
-//     let bouton = document.getElementById("croix");
-
-//     masquerPanier.style.width = "0";
-//     bouton.style.display = "none"
-//     afficherCard.style.opacity = "1";
-// }

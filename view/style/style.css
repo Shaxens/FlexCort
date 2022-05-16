@@ -427,6 +427,7 @@ header li a::after {
     background: black;
     z-index: 100;
     animation: 0.3s linear 0s alternate slideIn;
+    display: none;
     transition: 0.5s;
 }
 
@@ -438,7 +439,9 @@ header li a::after {
 #croix {
     position: fixed;
     top: 70px;
-    right: 30px;
+    right: 60px;
+    color: gray;
+    animation: 0.3s linear 0s alternate slideIn;
 }
 
 #croix:hover {
