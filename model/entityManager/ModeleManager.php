@@ -167,7 +167,7 @@ class ModeleManager
         }
     }
 
-    public function creerListeModeleFormatJson()
+    public function creerListeModeleFormatJson(): string|int
     {
 
         try
@@ -183,8 +183,7 @@ class ModeleManager
                 $tableau[] = $resultat;
             }
 
-            $json = json_encode($tableau);
-            return $json;
+            return json_encode($tableau);
         }
         catch (PDOException $e)
         {
