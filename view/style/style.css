@@ -397,4 +397,50 @@ header li a::after {
 
 /*
 * Fin Cards modèles
+* Debut panier Modèles
 */
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(400px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+.drawer {
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    background: black;
+    z-index: 100;
+    animation: 0.3s linear 0s alternate slideIn;
+    transition: 0.5s;
+}
+
+.drawerSlideOut {
+    animation: 0.3s linear 0s alternate slideOut;
+    transition: 0.5s;
+}
+
+#croix {
+    position: fixed;
+    top: 70px;
+    right: 30px;
+}
+
+#croix:hover {
+    color: white;
+}

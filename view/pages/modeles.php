@@ -22,7 +22,8 @@
             <div class="col"></div>
         </div>
     </div>
-    <div class="container">
+    
+    <div class="container" id="panier">
         <div class="row" id="afficherCard"></div>
 
     </div>
@@ -31,6 +32,8 @@
 </html>
 
 <script type="text/javascript" src="../js/modeles.js"></script>
+<script type="text/javascript" src="../js/panier.js"></script>
 
 
 <script src="../../model/entityManager/ModeleManager.php"></script>
+<script src="https://kit.fontawesome.com/9af0f0ccc2.js" crossorigin="anonymous"></script>
