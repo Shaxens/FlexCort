@@ -3,3 +3,4 @@
 include 'entityManager/ModeleManager.php';
 include 'entityManager/UtilisateurManager.php';
 include 'entityManager/ForfaitManager.php';
+include 'entityManager/ReservationManager.php';

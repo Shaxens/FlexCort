@@ -96,56 +96,36 @@ class Reservation
     }
 
     /**
-     * @param string $date
+     * @param string $dateDebut
      */
-    public function setDateDebut (string $date): void
+    public function setDateDebut (string $dateDebut): void
     {
-        $dateFormatee = DateSql::convertirFormatDateSql($date);
-        $this->dateDebut = $dateFormatee;
+        $this->dateDebut = $dateDebut;
     }
 
     /**
-     * @param int $nbJour
+     * @param string $dateFin
      */
-    public function setDateFin (int $nbJour): void
+    public function setDateFin (string $dateFin): void
     {
-        $dateFin = DateSql::ajouterJourAUneDate($this->getDateDebut(), $nbJour);
         $this->dateFin = $dateFin;
     }
-
-
     // CONSTRUCTEUR
     /**
      * @param int $idReservation
      * @param int $idUtilisateur
      * @param int $idModele
      * @param int $idForfait
-     * @param string $date
-     * @param int $nbJour
+     * @param string $dateDebut
+     * @param string $dateFin
      */
-    public function __construct (int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, string $date, int $nbJour)
+    public function __construct(int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut, string $dateFin)
     {
-        $this->setIdReservation($idReservation);
-        $this->setIdUtilisateur($idUtilisateur);
-        $this->setIdModele($idModele);
-        $this->setIdForfait($idForfait);
-        $this->setDateDebut($date);
-        $this->setDateFin($nbJour);
-    }
-
-    // METHODES
-    public function hydrate(array $infos)
-    {
-        foreach ($infos as $clef => $donnee)
-        {
-            // On récupère le nom du setter correspondant à l'attribut.
-            $methode = 'set'.$clef;
-            // Si le setter correspondant existe.
-            if (method_exists($this, $methode))
-            {
-                // On appelle le setter.
-                $this->$methode($donnee);
-            }
-        }
+        $this->idReservation = $idReservation;
+        $this->idUtilisateur = $idUtilisateur;
+        $this->idModele = $idModele;
+        $this->idForfait = $idForfait;
+        $this->dateDebut = $dateDebut;
+        $this->dateFin = $dateFin;
     }
 }
