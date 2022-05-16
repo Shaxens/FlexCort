@@ -174,7 +174,7 @@ class ReservationManager
                 $req->bindValue(6, $dateFin, PDO::PARAM_STR);
                 $req->execute();
 
-                return new Reservation($idReservation,$idUtilisateur, $idModele, $idForfait, $dateDebut, $dateFin);
+                return true;
             } catch (PDOException $e) {
                 echo 'ERREUR ajout a la base de donnee : ' . $e->getMessage();
             }
