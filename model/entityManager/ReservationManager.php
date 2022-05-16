@@ -50,7 +50,7 @@ class ReservationManager
 
     public function getAllReservation(): array|int
     {
-        $tableau[] = array();
+        $tableau = [];
         $index = 0;
         try
         {
@@ -72,37 +72,64 @@ class ReservationManager
         }
     }
 
+    public function checkModelePresent(int $idModele): bool|int
+    {
+        try
+        {
+            $sql = "SELECT IdModele FROM RESERVATION";
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->execute();
+            while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
+                if ($resultat->IdModele == $idModele)
+                {
+                    return true;
+                }
+            }
+            return false;
+        } catch (PDOException $e) {
+            echo 'ERREUR generation ID : ' . $e->getMessage();
+        }
+        return -1;
+    }
+
     public function checkDisponibiliteModele(int $idModele, int $idForfait, string $date) : bool
     {
-        $forfaitManager = new ForfaitManager();
-        $forfaitVoulu = $forfaitManager->getForfaitById($idForfait);
-        $tableauDateVoulu = DateSql::creerTableauDeDateConsecutive($date, $forfaitVoulu->getDureeForfait()); // On créé une liste de date(celles qui corresponde à la date de début et la durée du forfait voulu)
-        $tableauReservation = $this->getAllReservation(); // On créé une liste de reservation présent en BDD
-        $tableauReservationDuModele[] = array(); // On va filtrer les reservation ne concernant que le modele voulu
-        $index = 0;
-
-        foreach ($tableauReservation as $reservation)
+        if (!$this->checkModelePresent($idModele)) // Si le modele n'a aucune reservation on est sur qu'il est disponible
         {
-            if ($reservation->getIdModele() == $idModele)
+            return true;
+        }
+        else
+        {
+            $forfaitManager = new ForfaitManager();
+            $forfaitVoulu = $forfaitManager->getForfaitById($idForfait);
+            $tableauDateVoulu = DateSql::creerTableauDeDateConsecutive($date, $forfaitVoulu->getDureeForfait()); // On créé une liste de date(celles qui corresponde à la date de début et la durée du forfait voulu)
+            $tableauReservation = $this->getAllReservation(); // On créé une liste de reservation présent en BDD
+            $tableauReservationDuModele[] = array(); // On va filtrer les reservation ne concernant que le modele voulu
+            $index = 0;
+            foreach ($tableauReservation as $reservation)
             {
-                $tableauReservationDuModele[$index] = $reservation;
+                if ($reservation->getIdModele() == $idModele)
+                {
+                    echo $reservation->getIdModele();
+                    $tableauReservationDuModele[$index] = $reservation;
+                }
             }
-        }
 
-        $tableauIntervaleDateIndisponible[] = array(); // On va créer un tableau contenant les periodes(tableaux de dates) où le modele est indisponible
-        foreach ($tableauReservationDuModele as $reservation)
-        {
-            $forfait = $forfaitManager->getForfaitById($reservation->getIdForfait()); // On récupere le forfait pour avoir sa durée puis un créé un tableaude date à partir du début de cette reservation
-            $tableauIntervaleDateIndisponible[] = DateSql::creerTableauDeDateConsecutive($reservation->getDateDebut(), $forfait->getDureeForfait()); // Une fois créé on l'ajoute au tableau des periode indisponible pour ce modele
-        }
+            $tableauIntervaleDateIndisponible[] = array(); // On va créer un tableau contenant les periodes(tableaux de dates) où le modele est indisponible
+            foreach ($tableauReservationDuModele as $reservation)
+            {
+                $forfait = $forfaitManager->getForfaitById($reservation->getIdForfait()); // On récupere le forfait pour avoir sa durée puis un créé un tableaude date à partir du début de cette reservation
+                $tableauIntervaleDateIndisponible[] = DateSql::creerTableauDeDateConsecutive($reservation->getDateDebut(), $forfait->getDureeForfait()); // Une fois créé on l'ajoute au tableau des periode indisponible pour ce modele
+            }
 
-        // Enfin on compare le tableau de dates voulu avec les dates indisponible du modele
-        if (DateSql::estPresenteEnComparantDeuxTableau($tableauDateVoulu, $tableauIntervaleDateIndisponible))
-        {
-            return false; // On retourne false, le modele ne serait disponible pour toutes les dates
-        }
-        else{
-            return true; // Aucun conflit entre les dates, le modele est disponible pour cette reservation
+            // Enfin on compare le tableau de dates voulu avec les dates indisponible du modele
+            if (DateSql::estPresenteEnComparantDeuxTableau($tableauDateVoulu, $tableauIntervaleDateIndisponible))
+            {
+                return false; // On retourne false, le modele ne serait disponible pour toutes les dates
+            }
+            else{
+                return true; // Aucun conflit entre les dates, le modele est disponible pour cette reservation
+            }
         }
     }
 
