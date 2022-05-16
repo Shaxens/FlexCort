@@ -67,6 +67,7 @@ function getModeleById(idModele) {
 /*
  * On récupère tous les forfaits disponibles
  */
+
 function getForfaits() {
     fetch("../../controler/json/allForfaitJson.php", {
             method: "GET",
@@ -82,7 +83,9 @@ function getForfaits() {
                 <div class="col-5">
                     <div name="forfait${forfait.IdForfait}">
                         <h4>${forfait.NomForfait}</h4>
+                        <hr size="5px" style="color: white;">
                         <input type="checkbox" id="checkboxForfait" class="checkbox">
+                        <span class="forfaitPrix">${forfait.Prix} €</span>
                         <div class="card-body">
                             <p>${forfait.DescriptionForfait}</p>
                         </div>
@@ -92,5 +95,13 @@ function getForfaits() {
 
                 `);
             }
+            afficherForfait.insertAdjacentHTML('beforeend', `
+            <div class="row">
+                <div class="col-7"></div>
+                <div class="col-5">
+                <button onclick="choixPrestations(${modele.IdModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
+                </div>
+            </div>
+            `)
         })
 }

@@ -363,18 +363,22 @@ header li a::after {
 @keyframes zoomIn {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
     }
     100% {
         -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
     }
 }
 
 @keyframes zoomOut {
     0% {
         -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
     }
     100% {
         -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
     }
 }
 
@@ -418,6 +422,32 @@ header li a::after {
     }
 }
 
+@keyframes zoomInCroix {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1.15, 1.15, 1.15);
+        transform: scale3d(1.15, 1.15, 1.15);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes zoomOutCroix {
+    0% {
+        -webkit-transform: scale3d(1.15, 1.15, 1.15);
+        transform: scale3d(1.15, 1.15, 1.15);
+        transform: rotate(90deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        transform: rotate(0deg);
+    }
+}
+
 .drawer {
     overflow: auto;
     width: 400px;
@@ -433,16 +463,21 @@ header li a::after {
     color: white;
 }
 
+#croix:before {
+    animation: 0.3s linear 0s alternate slideIn;
+}
+
 #croix {
     position: fixed;
     top: 70px;
     right: 40px;
     color: gray;
-    animation: 0.3s linear 0s alternate slideIn;
+    animation: 0.3s linear 0s alternate zoomOutCroix;
 }
 
 #croix:hover {
     color: white;
+    animation: 0.3s linear 0s alternate zoomInCroix forwards;
 }
 
 .modeleDrawer {
@@ -460,4 +495,15 @@ header li a::after {
 .checkboxHide {
     width: 0;
     height: 0;
+}
+
+.forfaitPrix {
+    position: absolute;
+    top: 83px;
+    left: -53px;
+}
+
+.forfaitSuivant {
+    position: absolute;
+    right: 20px;
 }
