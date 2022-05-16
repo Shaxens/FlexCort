@@ -29,6 +29,7 @@
             <button onclick="fermerPanier()" class="btn fa-solid fa-xmark fa-3x" id="croix"></button>
             <div class="contenuDrawer" id="contenuDrawer"></div>
             <div class="contenuForfait" id="contenuForfait"></div>
+            <div class="contenuDate" id="contenuDate"></div>
         </div>
 
     </div>

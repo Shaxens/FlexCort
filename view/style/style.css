@@ -506,4 +506,5 @@ header li a::after {
 .forfaitSuivant {
     position: absolute;
     right: 20px;
+    width: 100px;
 }

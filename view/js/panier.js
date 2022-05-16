@@ -24,5 +24,6 @@ function fermerPanier() {
 }
 
 function choixPrestations() {
-
+    let masquerForfait = document.getElementById("contenuForfait");
+    masquerForfait.innerHTML = '';
 }

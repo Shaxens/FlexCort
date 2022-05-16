@@ -1,5 +1,6 @@
 let afficherTaches = document.getElementById("afficherCard");
 let afficherForfait = document.getElementById("contenuForfait");
+let afficherDate = document.getElementById("contenuDate");
 afficherCard.innerHTML = ``;
 
 /*
@@ -79,20 +80,20 @@ function getForfaits() {
             for (forfait of tableauForfaits) {
                 afficherForfait.insertAdjacentHTML('beforeend', `
                 <div class="row">
-                <div class="col-7"></div>
-                <div class="col-5">
-                    <div name="forfait${forfait.IdForfait}">
-                        <h4>${forfait.NomForfait}</h4>
-                        <hr size="5px" style="color: white;">
-                        <input type="checkbox" id="checkboxForfait" class="checkbox">
-                        <span class="forfaitPrix">${forfait.Prix} €</span>
-                        <div class="card-body">
-                            <p>${forfait.DescriptionForfait}</p>
+                    <div class="col-7"></div>
+                    <div class="col-5">
+                        <div name="forfait${forfait.IdForfait}">
+                            <h4>${forfait.NomForfait}</h4>
+                            <hr style="background-color: white;height: 5px;border-radius: 10px">
+                            <input type="checkbox" id="checkboxForfait" class="checkbox">
+                            <span class="forfaitPrix">${forfait.Prix} €</span>
+                            <div class="card-body">
+                                <p>${forfait.DescriptionForfait}</p>
+                                <p>Durée : ${forfait.DureeForfait} jour(s)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-
                 `);
             }
             afficherForfait.insertAdjacentHTML('beforeend', `
@@ -103,5 +104,24 @@ function getForfaits() {
                 </div>
             </div>
             `)
+        })
+}
+
+/*
+ * On récupère les dates indisponibles
+ */
+
+function getDateModele() {
+    fetch("../../controler/json/allReservationJson.php", {
+            method: "GET",
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        }).then(response => response.json())
+        .then(function(tableauForfaits) {
+            afficherDate.innerHTML = '';
+            let mescouilles = `
+            <input type="date" id="start" name="trip-start"
+            value="2018-07-22"
+            min="2018-01-01" max="2018-12-31">
+            `
         })
 }
