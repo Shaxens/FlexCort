@@ -68,7 +68,7 @@ class ModeleManager
         }
     }
 
-    public function createModele(String $pseudo, int $annee, int $mois, int $jour)
+    /*public function createModele(String $pseudo, int $annee, int $mois, int $jour)
     {
         try
         {
@@ -87,7 +87,7 @@ class ModeleManager
         {
             echo 'ERREUR creation date de naissance :'.$iae->getMessage();
         }
-    }
+    }*/  // A MODIFIER
 
     public function deleteModele(int $idModele)
     {
@@ -143,27 +143,6 @@ class ModeleManager
         catch (PDOException $e)
         {
             echo ' ERREUR updatePseudoModele '.$e->getMessage();
-        }
-    }
-
-    public function updateDateNaissanceModele(int $idModele, int $annee, int $mois, int $jour)
-    {
-        try
-        {
-            $newDateNaissanceModele = DateSql::creerDateFormatSqlValide($annee, $mois, $jour);
-            $sql = "UPDATE MODELE SET dateNaissance = ? WHERE idModele = ?";
-
-            $req = $this->connexionBdd->preparerRequete($sql);
-            $req->bindValue(1, $newDateNaissanceModele, PDO::PARAM_STR);
-            $req->bindValue(2, $idModele, PDO::PARAM_INT);
-            $req->execute();
-
-            $modele = $this->getModeleById($idModele);
-            echo 'Date de naissance de ',$modele->getPseudo(), ' modifié avec succès';
-        }
-        catch (PDOException $e)
-        {
-            echo ' ERREUR updateDateNaissanceModele '.$e->getMessage();
         }
     }
 
