@@ -27,7 +27,10 @@
         <div class="row" id="afficherCard"></div>
         <div id="drawer" class="drawer">
             <button onclick="fermerPanier()" class="btn fa-solid fa-xmark fa-3x" id="croix"></button>
-        </div>;
+            <div class="contenuDrawer" id="contenuDrawer">
+
+            </div>
+        </div>
 
     </div>
     

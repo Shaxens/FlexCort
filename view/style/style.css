@@ -429,6 +429,7 @@ header li a::after {
     animation: 0.3s linear 0s alternate slideIn;
     display: none;
     transition: 0.5s;
+    color: white;
 }
 
 .drawerSlideOut {
