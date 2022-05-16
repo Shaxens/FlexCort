@@ -46,13 +46,16 @@ abstract class DateSql
         return false;
     }
 
-    public static function estPresenteEnComparantDeuxTableau(array $tableauAVerifier, array $tableauExistant) : bool
+    public static function estPresenteEnComparantDeuxTableau(array $tableauAVerifier, array $tableauxExistants) : bool
     {
-        foreach ($tableauAVerifier as $dateAVerifier)
+        foreach ($tableauxExistants as $tableauEnCoursDeVerif)
         {
-            if (DateSql::estPresenteDansTableauDeDate($dateAVerifier, $tableauExistant))
+            foreach ($tableauAVerifier as $dateAVerifier)
             {
-                return true;
+                if (DateSql::estPresenteDansTableauDeDate($dateAVerifier, $tableauEnCoursDeVerif))
+                {
+                    return true;
+                }
             }
         }
         return false;

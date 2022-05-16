@@ -57,7 +57,9 @@ class ForfaitManager
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Forfait($resultat->IdForfait, $resultat->NomForfait, $resultat->DescriptionForfait, $resultat->DureeForfait, $resultat->Prix);
+            $forfait = new Forfait($resultat->IdForfait, $resultat->NomForfait, $resultat->DescriptionForfait, $resultat->DureeForfait, $resultat->Prix);
+
+            return $forfait;
         }
         catch (PDOException $e)
         {
@@ -96,7 +98,7 @@ class ForfaitManager
     {
         try
         {
-            $sql = "INSERT INTO FORFAIT(idForfait, nomForfait, descriptionForfait, dureeForfait, prix) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO FORFAIT(IdForfait, NomForfait, DescriptionForfait, DureeForfait, Prix) VALUES (?, ?, ?, ?, ?)";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $idForfait, PDO::PARAM_INT);
@@ -126,5 +128,6 @@ class ForfaitManager
             echo 'ERREUR deleteForfait'.$e->getMessage();
         }
     }
+
 
 }
