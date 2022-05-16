@@ -96,20 +96,62 @@ class ReservationManager
             $tableauIntervaleDateIndisponible[] = DateSql::creerTableauDeDateConsecutive($reservation->getDateDebut(), $forfait->getDureeForfait()); // Une fois créé on l'ajoute au tableau des periode indisponible pour ce modele
         }
 
-        foreach ($tableauDateVoulu as $date)
-        {
-            echo '<br>' . $date;
-        }
-
         // Enfin on compare le tableau de dates voulu avec les dates indisponible du modele
         if (DateSql::estPresenteEnComparantDeuxTableau($tableauDateVoulu, $tableauIntervaleDateIndisponible))
         {
-            echo 'Erreur date indisponible';
-            return false;
+            return false; // On retourne false, le modele ne serait disponible pour toutes les dates
         }
         else{
-            echo 'Date diponible faites vous plaisir !';
-            return true;
+            return true; // Aucun conflit entre les dates, le modele est disponible pour cette reservation
         }
+    }
+
+    private function genererIdUnique() : int
+    {
+        $id = 0;
+        try
+        {
+            $sql = "SELECT IdReservation FROM RESERVATION";
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->execute();
+            while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
+                $id += $resultat->IdReservation + 1;
+            }
+
+            return $id;
+            } catch (PDOException $e) {
+            echo 'ERREUR generation ID : ' . $e->getMessage();
+        }
+        return -1;
+    }
+
+    public function creerReservation(int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut) : Reservation | bool
+    {
+        $forfaitManager = new ForfaitManager();
+        $forfait = $forfaitManager->getForfaitById($idForfait);
+        $dateFin = DateSql::ajouterJourAUneDate($dateDebut,$forfait->getDureeForfait());
+        $idReservation = $this->genererIdUnique();
+
+        if ($this->checkDisponibiliteModele($idModele, $idForfait, $dateDebut))
+        {
+            try
+            {
+                $sql = "INSERT INTO RESERVATION(IdReservation, IdUtilisateur, IdModele, IdForfait, DateDebut, DateFin) VALUES (?, ?, ?, ?, ?, ?)";
+
+                $req = $this->connexionBdd->preparerRequete($sql);
+                $req->bindValue(1, $idReservation, PDO::PARAM_INT);
+                $req->bindValue(2, $idUtilisateur, PDO::PARAM_INT);
+                $req->bindValue(3, $idModele, PDO::PARAM_INT);
+                $req->bindValue(4, $idForfait, PDO::PARAM_INT);
+                $req->bindValue(5, $dateDebut, PDO::PARAM_STR);
+                $req->bindValue(6, $dateFin, PDO::PARAM_STR);
+                $req->execute();
+
+                return new Reservation($idReservation,$idUtilisateur, $idModele, $idForfait, $dateDebut, $dateFin);
+            } catch (PDOException $e) {
+                echo 'ERREUR ajout a la base de donnee : ' . $e->getMessage();
+            }
+        }
+        return false; // Si la reservation est impossible on retourne false
     }
 }
