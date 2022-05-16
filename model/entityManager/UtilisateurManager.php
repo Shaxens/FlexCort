@@ -24,7 +24,7 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "INSERT INTO UTILISATEUR(nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO UTILISATEUR(Nom, Prenom, Mail, Mdp) VALUES (?, ?, ?, ?)";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $utilisateur->getNom(), PDO::PARAM_STR);
@@ -32,8 +32,6 @@ class UtilisateurManager {
             $req->bindValue(3, $utilisateur->getMail(), PDO::PARAM_STR);
             $req->bindValue(4, $utilisateur->getMdp(), PDO::PARAM_STR);
             $req->execute();
-
-            echo $utilisateur->getNom(). ' '. $utilisateur->getPrenom(). ' ajouté avec succès';
         }
         catch (PDOException $e)
         {
@@ -45,14 +43,14 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "SELECT mail, mdp, nom, prenom, estAdmin FROM UTILISATEUR WHERE UTILISATEUR.mail = ?";
+            $sql = "SELECT Nom, Prenom, Mail, Mdp, EstAdmin FROM UTILISATEUR WHERE UTILISATEUR.mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $mail, PDO::PARAM_STR);
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Utilisateur($resultat->nom, $resultat->prenom, $resultat->mail, $resultat->mdp, $resultat->estAdmin);
+            return new Utilisateur($resultat->Nom, $resultat->Prenom, $resultat->Mail, $resultat->Mdp, $resultat->EstAdmin);
         }
         catch (PDOException $e)
         {
@@ -75,7 +73,7 @@ class UtilisateurManager {
             //tant qu‘il y a des lignes en BDD
             while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
                 //on ajoute l’entité à un tableau d’ingrédients
-                $listeUtilisateur[$index] = new Utilisateur($resultat->nom, $resultat->prenom, $resultat->mail, $resultat->mdp, $resultat->estAdmin);
+                $listeUtilisateur[$index] = new Utilisateur($resultat->Nom, $resultat->Prenom, $resultat->Mail, $resultat->Mdp, $resultat->EstAdmin);
                 $index +=1;
             }
             return $listeUtilisateur;
@@ -91,13 +89,11 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "DELETE FROM UTILISATEUR WHERE mail = ?";
+            $sql = "DELETE FROM UTILISATEUR WHERE Mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $utilisateur->getMail(), PDO::PARAM_STR);
             $req->execute();
-
-            echo $utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' supprimé avec succès';
         }
         catch (PDOException $e)
         {
@@ -109,15 +105,12 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "UPDATE UTILISATEUR SET mail = ? WHERE mail = ?";
+            $sql = "UPDATE UTILISATEUR SET Mail = ? WHERE Mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $nouveauMail, PDO::PARAM_STR);
             $req->bindValue(2, $mail, PDO::PARAM_STR);
             $req->execute();
-
-            $utilisateur = $this->getUtilisateur($nouveauMail);
-            echo 'mail de ',$utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {
@@ -129,15 +122,12 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "UPDATE UTILISATEUR SET nom = ? WHERE mail = ?";
+            $sql = "UPDATE UTILISATEUR SET Nom = ? WHERE Mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $nouveauNom, PDO::PARAM_STR);
             $req->bindValue(2, $mail, PDO::PARAM_STR);
             $req->execute();
-
-            $utilisateur = $this->getUtilisateur($mail);
-            echo 'nom de ',$utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {
@@ -149,15 +139,12 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "UPDATE UTILISATEUR SET prenom = ? WHERE mail = ?";
+            $sql = "UPDATE UTILISATEUR SET Prenom = ? WHERE Mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $nouveauPrenom, PDO::PARAM_STR);
             $req->bindValue(2, $mail, PDO::PARAM_STR);
             $req->execute();
-
-            $utilisateur = $this->getUtilisateur($mail);
-            echo 'prenom de ',$utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {
@@ -169,15 +156,12 @@ class UtilisateurManager {
     {
         try
         {
-            $sql = "UPDATE UTILISATEUR SET mdp = ? WHERE mail = ?";
+            $sql = "UPDATE UTILISATEUR SET Mdp = ? WHERE Mail = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $nouveauMdp, PDO::PARAM_STR);
             $req->bindValue(2, $mail, PDO::PARAM_STR);
             $req->execute();
-
-            $utilisateur = $this->getUtilisateur($mail);
-            echo 'mdp de ',$utilisateur->getNom(), ' ', $utilisateur->getPrenom(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {

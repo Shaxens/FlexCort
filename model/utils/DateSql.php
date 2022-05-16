@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 abstract class DateSql
 {
     // ATTRIBUT
@@ -14,28 +16,41 @@ abstract class DateSql
 
     public static function ajouterJourAUneDate(string $date, int $nbJour) : string
     {
-        $dateDepartTimestamp = strtotime($date);
+        $dateDepart = strtotime($date);
 
         //on calcule et retourne la date de fin
-        return date(DateSql::$format, strtotime('+' .$nbJour. 'days', $dateDepartTimestamp ));
+        return date(DateSql::$format, strtotime('+' .$nbJour. 'days', $dateDepart));
     }
 
-    public static function creerTableauDeDateConsecutive(string $date, int $nbJour)
+    public static function creerTableauDeDateConsecutive(string $date, int $nbJour) : array
     {
-        DateSql::convertirFormatDateSql($date);
+        $dateFormatee = DateSql::convertirFormatDateSql($date);
         $tableau = [];
         for ($i = 0; $i < $nbJour; $i++)
         {
-            $tableau[] = DateSql::ajouterJourAUneDate($date, $i);
+            $tableau[] = DateSql::ajouterJourAUneDate($dateFormatee, $i);
         }
         return $tableau;
     }
 
     public static function estPresenteDansTableauDeDate(string $dateAVerifier, array $tableauDate) : bool
     {
+        $dateAVerifierFormatee = DateSql::convertirFormatDateSql($dateAVerifier);
         foreach ($tableauDate as $datePresente)
         {
-            if ($dateAVerifier == $datePresente)
+            if ($dateAVerifierFormatee == $datePresente)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static function estPresenteEnComparantDeuxTableau(array $tableauAVerifier, array $tableauExistant) : bool
+    {
+        foreach ($tableauAVerifier as $dateAVerifier)
+        {
+            if (DateSql::estPresenteDansTableauDeDate($dateAVerifier, $tableauExistant))
             {
                 return true;
             }

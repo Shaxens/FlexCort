@@ -26,14 +26,14 @@ class ModeleManager
     {
         try
         {
-            $sql = "SELECT idModele, pseudo, dateNaissance FROM MODELE WHERE MODELE.idModele = ?";
+            $sql = "SELECT IdModele, Pseudo, DateNaissance FROM MODELE WHERE MODELE.IdModele = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $idModele, PDO::PARAM_INT);
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Modele($resultat->idModele, $resultat->pseudo, $resultat->dateNaissance);
+            return new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance);
         }
         catch (PDOException $e)
         {
@@ -53,9 +53,8 @@ class ModeleManager
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->execute();
 
-
             while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
-                $listeModele[$index] = new Modele($resultat->idModele, $resultat->pseudo, $resultat->dateNaissance);
+                $listeModele[$index] = new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance);
                 $index +=1;
             }
 
@@ -93,12 +92,11 @@ class ModeleManager
     {
         try
         {
-            $sql = "DELETE FROM MODELE WHERE idModele = ?";
+            $sql = "DELETE FROM MODELE WHERE IdModele = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $idModele, PDO::PARAM_INT);
             $req->execute();
-
         }
         catch (PDOException $e)
         {
@@ -110,15 +108,12 @@ class ModeleManager
     {
         try
         {
-            $sql = "UPDATE MODELE SET idModele = ? WHERE idModele = ?";
+            $sql = "UPDATE MODELE SET IdModele = ? WHERE IdModele = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $newIdModele, PDO::PARAM_INT);
             $req->bindValue(2, $idModele, PDO::PARAM_INT);
             $req->execute();
-
-            $modele = $this->getModeleById($newIdModele);
-            echo 'Id de ',$modele->getPseudo(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {
@@ -130,15 +125,12 @@ class ModeleManager
     {
         try
         {
-            $sql = "UPDATE MODELE SET pseudo = ? WHERE idModele = ?";
+            $sql = "UPDATE MODELE SET Pseudo = ? WHERE IdModele = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $newPseudoModele, PDO::PARAM_STR);
             $req->bindValue(2, $idModele, PDO::PARAM_INT);
             $req->execute();
-
-            $modele = $this->getModeleById($idModele);
-            echo 'Pseudo de ',$modele->getPseudo(), ' modifié avec succès';
         }
         catch (PDOException $e)
         {

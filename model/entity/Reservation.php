@@ -96,21 +96,21 @@ class Reservation
     }
 
     /**
-     * @param string $dateDebut
+     * @param string $date
      */
     public function setDateDebut (string $date): void
     {
-        strtotime('2020-02-02');
-        $this->dateDebut = $date;
+        $dateFormatee = DateSql::convertirFormatDateSql($date);
+        $this->dateDebut = $dateFormatee;
     }
 
     /**
-     * @param string $dateFin
+     * @param int $nbJour
      */
-    public function setDateFin (DateSql $date): void
+    public function setDateFin (int $nbJour): void
     {
-
-        $this->dateFin = $date;
+        $dateFin = DateSql::ajouterJourAUneDate($this->getDateDebut(), $nbJour);
+        $this->dateFin = $dateFin;
     }
 
 
@@ -120,15 +120,32 @@ class Reservation
      * @param int $idUtilisateur
      * @param int $idModele
      * @param int $idForfait
-     * @param string $dateDebut
+     * @param string $date
+     * @param int $nbJour
      */
-    public function __construct (int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, DateSql $dateDebut)
+    public function __construct (int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, string $date, int $nbJour)
     {
         $this->setIdReservation($idReservation);
         $this->setIdUtilisateur($idUtilisateur);
         $this->setIdModele($idModele);
         $this->setIdForfait($idForfait);
-        $this->setDateDebut($dateDebut);
-        $this->setDateFin();
+        $this->setDateDebut($date);
+        $this->setDateFin($nbJour);
+    }
+
+    // METHODES
+    public function hydrate(array $infos)
+    {
+        foreach ($infos as $clef => $donnee)
+        {
+            // On récupère le nom du setter correspondant à l'attribut.
+            $methode = 'set'.$clef;
+            // Si le setter correspondant existe.
+            if (method_exists($this, $methode))
+            {
+                // On appelle le setter.
+                $this->$methode($donnee);
+            }
+        }
     }
 }

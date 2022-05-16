@@ -21,10 +21,20 @@ echo $dateFin. "<br>";*/
 $dateAuPif ='2000-07-01T00:00:00+00:00';
 
 $tableau = DateSql::creerTableauDeDateConsecutive($dateAuPif, 6);
+$tableau2 = DateSql::creerTableauDeDateConsecutive('2000-08-04', 7);
 
 foreach ($tableau as $date)
 {
     echo $date . '<br>';
+}
+
+$bool = DateSql::estPresenteEnComparantDeuxTableau($tableau2, $tableau);
+if ($bool == true)
+{
+    echo 'Erreur, date invalide';
+}
+else{
+    echo 'Date valide !';
 }
 
 

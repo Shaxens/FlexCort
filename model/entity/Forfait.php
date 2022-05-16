@@ -50,6 +50,7 @@ class Forfait
         return $this->prixForfait;
     }
 
+
     // SETTERS
     /**
      * @param int $idForfait
@@ -86,7 +87,7 @@ class Forfait
     /**
      * @param int $prixForfait
      */
-    public function setPrixForfait (int $prixForfait): void
+    public function setPrix (int $prixForfait): void
     {
         $this->prixForfait = $prixForfait;
     }
@@ -105,6 +106,6 @@ class Forfait
         $this->setNomForfait($nomForfait);
         $this->setDescriptionForfait($descriptionForfait);
         $this->setDureeForfait($dureeForfait);
-        $this->setPrixForfait($prixForfait);
+        $this->setPrix($prixForfait);
     }
 }

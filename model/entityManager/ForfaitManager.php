@@ -50,14 +50,14 @@ class ForfaitManager
     {
         try
         {
-            $sql = "SELECT idForfait, nomForfait, descriptionForfait, dureeForfait, prix FROM FORFAIT WHERE FORFAIT.idForfait = ?";
+            $sql = "SELECT IdForfait, NomForfait, DescriptionForfait, DureeForfait, Prix FROM FORFAIT WHERE FORFAIT.idForfait = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $idForfait, PDO::PARAM_INT);
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Forfait($resultat->idForfait, $resultat->nomForfait, $resultat->descriptionForfait, $resultat->dureeForfait, $resultat->prix);
+            return new Forfait($resultat->IdForfait, $resultat->NomForfait, $resultat->DescriptionForfait, $resultat->DureeForfait, $resultat->Prix);
         }
         catch (PDOException $e)
         {
