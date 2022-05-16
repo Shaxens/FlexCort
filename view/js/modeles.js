@@ -4,7 +4,7 @@ afficherCard.innerHTML = ``;
 
 
 window.onload = function() {
-    fetch('../../controler/pageModeleControler.php', {
+    fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
         })
