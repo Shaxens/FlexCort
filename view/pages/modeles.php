@@ -23,13 +23,12 @@
         </div>
     </div>
     
-    <div class="container" id="panier">
+    <div class="container" id="modeles">
         <div class="row" id="afficherCard"></div>
         <div id="drawer" class="drawer">
             <button onclick="fermerPanier()" class="btn fa-solid fa-xmark fa-3x" id="croix"></button>
-            <div class="contenuDrawer" id="contenuDrawer">
-
-            </div>
+            <div class="contenuDrawer" id="contenuDrawer"></div>
+            <div class="contenuForfait" id="contenuForfait"></div>
         </div>
 
     </div>

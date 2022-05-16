@@ -419,6 +419,7 @@ header li a::after {
 }
 
 .drawer {
+    overflow: auto;
     width: 400px;
     height: 100vh;
     position: fixed;
@@ -432,19 +433,31 @@ header li a::after {
     color: white;
 }
 
-.drawerSlideOut {
-    animation: 0.3s linear 0s alternate slideOut;
-    transition: 0.5s;
-}
-
 #croix {
     position: fixed;
     top: 70px;
-    right: 60px;
+    right: 40px;
     color: gray;
     animation: 0.3s linear 0s alternate slideIn;
 }
 
 #croix:hover {
     color: white;
+}
+
+.modeleDrawer {
+    text-align: center;
+}
+
+.checkbox {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.checkboxHide {
+    width: 0;
+    height: 0;
 }
