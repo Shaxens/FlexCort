@@ -354,6 +354,12 @@ header li a::after {
     background-size: cover;
 }
 
+
+/* 
+* Fin Loader
+* Debut Cards modèles
+*/
+
 @keyframes zoomIn {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
@@ -381,3 +387,14 @@ header li a::after {
     animation: 0.3s linear 0s alternate zoomOut;
     animation-fill-mode: forwards;
 }
+
+#hr {
+    height: 5px;
+    border-radius: 10px;
+    background-color: darkmagenta;
+}
+
+
+/*
+* Fin Cards modèles
+*/

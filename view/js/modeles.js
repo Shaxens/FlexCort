@@ -12,65 +12,23 @@ window.onload = function() {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 console.log(modele);
-                if (modele.length == 1) {
-                    let modeleCard3 = `
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col">
-                <div class="card zoomCard" style="width: 18rem;" name="${modele.idModele}">
-                    <a type="button" href="./modeles/${modele.pseudo}.php">
-                    <img src="../images/modeles/${modele.pseudo}.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">${modele.pseudo}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="./modeles/${modele.pseudo}.php" class="btn btn-primary">Réservez-moi</a>
+
+
+                afficherCard.insertAdjacentHTML('beforeend', `
+                    <div class="col-4 pb-4">
+                        <div class="card zoomCard" style="width: 18rem;" name="${modele.idModele}">
+                            <a type="button" href="./modeles/${modele.pseudo}.php">
+                            <img src="../images/modeles/${modele.pseudo}.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">${modele.pseudo}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="./modeles/${modele.idModele}.php" class="btn btn-primary">Réservez-moi</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        `;
-                    afficherCard.innerHTML += modeleCard3;
-                }
-                let modeleCard = `
-    <div class="col">
-        <div class="card zoomCard" style="width: 18rem;" name="${modele.idModele}">
-            <a type="button" href="./modeles/${modele.pseudo}.php">
-            <img src="../images/modeles/${modele.pseudo}.jpg" class="card-img-top" alt="...">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">${modele.pseudo}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="./modeles/${modele.pseudo}.php" class="btn btn-primary">Réservez-moi</a>
-            </div>
-        </div>
-    </div>
-    `;
-                if (modele % 3 == 0) {
-                    let modeleCard3 = `
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col">
-                <div class="card zoomCard" style="width: 18rem;" name="${modele.idModele}">
-                    <a type="button" href="./modeles/${modele.pseudo}.php">
-                    <img src="../images/modeles/${modele.pseudo}.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">${modele.pseudo}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="./modeles/${modele.pseudo}.php" class="btn btn-primary">Réservez-moi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        `;
-                    afficherCard.innerHTML += modeleCard3;
-                } else {
-                    afficherCard.innerHTML += modeleCard;
-                }
-                afficherCard.innerHTML;
+                    `);
             }
 
         })
-        .catch(erreur => console.log(erreur))
 }

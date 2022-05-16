@@ -10,95 +10,23 @@
     <title>FlexCort - Modèles</title>
 </head>
 <body>
-<?php include("navbar.php") ?>
+    <?php include("navbar.php") ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-xxl-2">
-            <br><br><br><br><br>
-            <h1>Nos modèles</h1><hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-xxl-2">
+                <br><br><br><br><br>
+                <h1>Nos modèles</h1><hr id="hr" size="10px">
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
     </div>
-    <div id="afficherCard">
+    <div class="container">
+        <div class="row" id="afficherCard"></div>
 
     </div>
-    <!-- <div class="row">
-        <div class="col-3"></div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="blackWindow">
-            <a type="button" href="./modeles/blackWindow.php">
-                <img src="../images/modeles/blackWindow.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">Black Window</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/blackWindow.php" class="btn btn-primary">Réservez-moi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="princessePeach">
-            <a type="button" href="./modeles/princessePeach.php">
-                <img src="../images/modeles/princessePeach.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">Princesse Peach</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/princessePeach.php" class="btn btn-primary">Réservez-moi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="microman">
-            <a type="button" href="./modeles/princessePeach.php">
-                <img src="../images/modeles/microman.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">Microman</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/microman.php" class="btn btn-primary">Réservez-moi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-    <div class="row" style="padding-top: 50px;">
-        <div class="col-3"></div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="randomGoodGuy">
-                <img src="../images/modeles/randomGoodGuy.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Random GoodGuy</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/randomGoodGuy.php" class="btn btn-primary">Réservez-moi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="spartatouze">
-                <img src="../images/modeles/spartatouze.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Spartatouze</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/spartatouze.php" class="btn btn-primary">Réservez-moi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card zoomCard" style="width: 18rem;" name="rocoSifredi">
-                <img src="../images/modeles/rocoSifredi.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Roco & Sifredi</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./modeles/rocoSifredi.php" class="btn btn-primary">Réservez-nous</a>
-                </div>
-            </div>
-        </div>
-        <div class="col"></div>
-    </div>
-    </div> -->
+    
 </body>
 </html>
 
@@ -106,4 +34,3 @@
 
 
 <script src="../../model/entityManager/ModeleManager.php"></script>
-<!-- <script type="text/javascript" src="../js/test.js"></script> -->
