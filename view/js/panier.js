@@ -15,15 +15,12 @@ function fermerPanier() {
     let masquerPanier = document.getElementById("drawer");
     let afficherCard = document.getElementById("afficherCard");
     let bouton = document.getElementById("croix");
-    let checkbox = document.querySelectorAll(".radio");
     masquerPanier.style.width = "0";
     bouton.style.display = "none";
     afficherCard.style.opacity = "1";
 }
 
 function choixDate(idModele) {
-    let date = document.getElementById("contenuDate");
-    date.innerHTML = Date();
     getDateModele(idModele);
     boutonSuivantPrecedent(idModele);
 }
