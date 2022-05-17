@@ -512,6 +512,11 @@ header li a::after {
     margin-bottom: 50px;
 }
 
+
+/*
+* Mise en page des boutons radios dans la selection du forfait
+*/
+
 .radio:not(:empty) {
     padding-left: 30px;
 }
@@ -560,3 +565,8 @@ header li a::after {
 .radio:hover:checked:after {
     transform: scale(0.4);
 }
+
+
+/*
+* Fin mise en page des boutons radios
+*/

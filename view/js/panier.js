@@ -1,13 +1,15 @@
-function afficherPanier(IdModele) {
+function afficherPanier(idModele) {
     let afficherPanier = document.getElementById("drawer");
     let afficherCard = document.getElementById("afficherCard");
+    let masquerDate = document.getElementById("contenuDate");
     let bouton = document.getElementById("croix");
+    masquerDate.innerHTML = '';
     afficherCard.style.opacity = "0.7";
     afficherPanier.style.display = "block";
     afficherPanier.style.width = "23%";
     bouton.style.display = "block";
-    getModeleById(IdModele);
-    getForfaits();
+    getModeleById(idModele);
+    getForfaits(idModele);
 }
 
 function fermerPanier() {
@@ -23,7 +25,8 @@ function fermerPanier() {
     afficherCard.style.opacity = "1";
 }
 
-function choixPrestations() {
+function choixDate(idModele) {
     let masquerForfait = document.getElementById("contenuForfait");
     masquerForfait.innerHTML = '';
+    getDateModele(idModele);
 }

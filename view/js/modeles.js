@@ -69,7 +69,7 @@ function getModeleById(idModele) {
  * On récupère tous les forfaits disponibles
  */
 
-function getForfaits() {
+function getForfaits(idModele) {
     fetch("../../controler/json/allForfaitJson.php", {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -96,33 +96,64 @@ function getForfaits() {
                 </div>
                 `);
             }
-            afficherForfait.insertAdjacentHTML('beforeend', `
-            <div class="row">
-                <div class="col-7"></div>
-                <div class="col-5">
-                <button onclick="choixPrestations(${modele.IdModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
-                </div>
-            </div>
-            `)
+            for (modele of tableauForfaits) {
+                if (modele.IdForfait == idModele) {
+                    afficherForfait.insertAdjacentHTML('beforeend', `
+                    <div class="row">
+                        <div class="col-7"></div>
+                        <div class="col-5">
+                            <button onclick="choixDate(${modele.idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
+                        </div>
+                    </div>
+                    `)
+                }
+            }
+
         })
 }
 
 /*
- * On récupère les dates indisponibles
+ * On envoie la date qui nous intéresse pour réserver
  */
 
-function getDateModele() {
+function getDateModele(idModele) {
     fetch("../../controler/json/allReservationJson.php", {
-            method: "GET",
+            method: "PUT",
+            body: JSON.stringify(),
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
         .then(function(tableauForfaits) {
-            afficherDate.innerHTML = '';
 
             afficherDate.insertAdjacentHTML('beforeend', `
             <input type="date" id="start" name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01" max="2018-12-31">
+            value="2022-01-01"
+            min="2022-01-01" max="2030-12-31">
             `);
+            afficherDate.innerHTML = `
+            <button onclick="afficherPanier(${idModele})" class="btn btn-primary btnDate">Précédent</button>
+            <button onclick="choixDate(${idModele})" class="btn btn-primary btnDate">Confirmer</button>
+            `;
         })
 }
+
+// function boutonSuivant(idModele) {
+//     fetch('../../controler/json/allModelesJson.php', {
+//             method: "GET",
+//             headers: { "Content-type": "application/json; charset=UTF-8" }
+//         })
+//         .then(response => response.json())
+//         .then(function(tableauModeles) {
+//             for (modele of tableauModeles) {
+//                 if (modele.IdModele == idModele) {
+//                     afficherForfait.insertAdjacentHTML('beforeend', `
+//                     <div class="row">
+//                         <div class="col-7"></div>
+//                         <div class="col-5">
+//                             <button onclick="choixDate(${modele.idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
+//                         </div>
+//                     </div>
+//                     `)
+//                 }
+//             }
+//         })
+// }
