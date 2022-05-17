@@ -1,7 +1,8 @@
-let afficherTaches = document.getElementById("afficherCard");
-let afficherForfait = document.getElementById("contenuForfait");
-let afficherDate = document.getElementById("contenuDate");
-afficherCard.innerHTML = ``;
+const drawer = document.getElementById("contenuDrawer");
+const afficherTaches = document.getElementById("afficherCard");
+const afficherForfait = document.getElementById("contenuForfait");
+const afficherDate = document.getElementById("contenuDate");
+const radioButtons = document.querySelectorAll('input[name="size"]');
 
 /*
  * On récupère tous les modèles et on les ajoute dans le html
@@ -23,7 +24,7 @@ window.onload = function getModeles() {
                             </button>
                             <div class="card-body">
                                 <h5 class="card-title">${modele.Pseudo}</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text">${modele.DescriptionModele}</p>
                                 <button onclick="afficherPanier(${modele.IdModele})" class="btn btn-primary">Réservez-moi</button>
                             </div>
                         </div>
@@ -47,7 +48,6 @@ function getModeleById(idModele) {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 if (modele.IdModele == idModele) {
-                    let drawer = document.getElementById("contenuDrawer");
                     drawer.innerHTML = '';
                     drawer.insertAdjacentHTML('beforeend', `
                 <div>
@@ -75,8 +75,8 @@ function getForfaits(idModele) {
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
         .then(function(tableauForfaits) {
+            afficherDate.innerHTML = '';
             afficherForfait.innerHTML = '';
-
             for (forfait of tableauForfaits) {
                 afficherForfait.insertAdjacentHTML('beforeend', `
                 <div class="row">
@@ -96,19 +96,6 @@ function getForfaits(idModele) {
                 </div>
                 `);
             }
-            for (modele of tableauForfaits) {
-                if (modele.IdForfait == idModele) {
-                    afficherForfait.insertAdjacentHTML('beforeend', `
-                    <div class="row">
-                        <div class="col-7"></div>
-                        <div class="col-5">
-                            <button onclick="choixDate(${modele.idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
-                        </div>
-                    </div>
-                    `)
-                }
-            }
-
         })
 }
 
@@ -123,37 +110,62 @@ function getDateModele(idModele) {
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
         .then(function(tableauForfaits) {
-
+            afficherDate.innerHTML = '';
+            afficherForfait.innerHTML = '';
             afficherDate.insertAdjacentHTML('beforeend', `
-            <input type="date" id="start" name="trip-start"
-            value="2022-01-01"
-            min="2022-01-01" max="2030-12-31">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-9">
+                    <input type="date" id="start" name="trip-start"
+                    value="2022-01-01"
+                    min="2022-01-01" max="2030-12-31">
+                </div>
+            </div>
             `);
-            afficherDate.innerHTML = `
-            <button onclick="afficherPanier(${idModele})" class="btn btn-primary btnDate">Précédent</button>
-            <button onclick="choixDate(${idModele})" class="btn btn-primary btnDate">Confirmer</button>
-            `;
         })
 }
 
-// function boutonSuivant(idModele) {
-//     fetch('../../controler/json/allModelesJson.php', {
-//             method: "GET",
-//             headers: { "Content-type": "application/json; charset=UTF-8" }
-//         })
-//         .then(response => response.json())
-//         .then(function(tableauModeles) {
-//             for (modele of tableauModeles) {
-//                 if (modele.IdModele == idModele) {
-//                     afficherForfait.insertAdjacentHTML('beforeend', `
-//                     <div class="row">
-//                         <div class="col-7"></div>
-//                         <div class="col-5">
-//                             <button onclick="choixDate(${modele.idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
-//                         </div>
-//                     </div>
-//                     `)
-//                 }
-//             }
-//         })
-// }
+function boutonSuivant(idModele) {
+    fetch('../../controler/json/allModelesJson.php', {
+            method: "GET",
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+        .then(response => response.json())
+        .then(function(tableauModeles) {
+            for (modele of tableauModeles) {
+                if (modele.IdModele == idModele) {
+                    afficherForfait.insertAdjacentHTML('beforeend', `
+                    <div class="row">
+                        <div class="col-7"></div>
+                        <div class="col-5">
+                            <button onclick="choixDate(${idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
+                        </div>
+                    </div>
+                    `)
+                }
+            }
+        })
+}
+
+function boutonSuivantPrecedent(idModele) {
+    fetch('../../controler/json/allModelesJson.php', {
+            method: "GET",
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+        .then(response => response.json())
+        .then(function(tableauModeles) {
+            for (modele of tableauModeles) {
+                if (modele.IdModele == idModele) {
+                    afficherDate.insertAdjacentHTML('beforeend', `
+                    <div class="row">
+                        <div class="col-7"></div>
+                        <div class="col-5">
+                            <button onclick="afficherPanier(${modele.IdModele})" class="btn btn-primary forfaitSuivant">Précédent</button>
+                            <button onclick="fermerPanier()" class="btn btn-primary forfaitSuivant">Confirmer</button>
+                        </div>
+                    </div>
+                    `)
+                }
+            }
+        })
+}

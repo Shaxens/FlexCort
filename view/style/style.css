@@ -488,19 +488,6 @@ header li a::after {
     text-align: center;
 }
 
-.radio {
-    position: absolute;
-    top: 95px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-}
-
-.radioHide {
-    width: 0;
-    height: 0;
-}
-
 .forfaitPrix {
     position: absolute;
     top: 93px;
@@ -516,6 +503,19 @@ header li a::after {
 /*
 * Mise en page des boutons radios dans la selection du forfait
 */
+
+.radio {
+    position: absolute;
+    top: 95px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.radioHide {
+    width: 0;
+    height: 0;
+}
 
 .radio:not(:empty) {
     padding-left: 30px;
