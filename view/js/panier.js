@@ -22,6 +22,8 @@ function fermerPanier() {
 }
 
 function choixDate(idModele) {
+    let date = document.getElementById("contenuDate");
+    date.innerHTML = Date();
     getDateModele(idModele);
     boutonSuivantPrecedent(idModele);
 }

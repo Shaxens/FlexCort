@@ -101,6 +101,9 @@ function getForfaits(idModele) {
 
 /*
  * On envoie la date qui nous intéresse pour réserver
+ *
+ * let date = new Date().toISOString().slice(0, 10); 
+ * On récupère la date du jour en format ISO String et on la coupe pour obtenir un format YYYY-MM-JJ (nécessaire pour le datePicker)
  */
 
 function getDateModele(idModele) {
@@ -112,13 +115,14 @@ function getDateModele(idModele) {
         .then(function(tableauForfaits) {
             afficherDate.innerHTML = '';
             afficherForfait.innerHTML = '';
+            let date = new Date().toISOString().slice(0, 10);
             afficherDate.insertAdjacentHTML('beforeend', `
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-9">
                     <input type="date" id="start" name="trip-start"
-                    value="2022-01-01"
-                    min="2022-01-01" max="2030-12-31">
+                    value="${date}"
+                    min="${date}" max="2030-12-31">
                 </div>
             </div>
             `);
