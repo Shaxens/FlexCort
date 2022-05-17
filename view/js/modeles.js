@@ -100,10 +100,10 @@ function getForfaits(idModele) {
 }
 
 /*
- * On envoie la date qui nous intéresse pour réserver
+ * @todo On envoie la date qui nous intéresse pour réserver
  *
- * let date = new Date().toISOString().slice(0, 10); 
- * On récupère la date du jour en format ISO String et on la coupe pour obtenir un format YYYY-MM-JJ (nécessaire pour le datePicker)
+ * @var Date $date On récupère la date du jour en format ISO String et on la coupe pour obtenir un format YYYY-MM-JJ (nécessaire pour le datePicker).
+ * @var Date $dateYear On récupère l'année en cours, ${dateYear+3} ensuite on ajoute 3 pour réserver dans maximum 3 ans.
  */
 
 function getDateModele(idModele) {
