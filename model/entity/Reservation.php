@@ -8,9 +8,9 @@ class Reservation
     private int $idUtilisateur;
     private int $idModele;
     private int $idForfait;
+    private int $prixReservation;
     private string $dateDebut;
     private string $dateFin;
-
 
     // GETTERS
     /**
@@ -43,6 +43,14 @@ class Reservation
     public function getIdForfait (): int
     {
         return $this->idForfait;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrixReservation(): int
+    {
+        return $this->prixReservation;
     }
 
     /**
@@ -96,6 +104,14 @@ class Reservation
     }
 
     /**
+     * @param int $prixReservation
+     */
+    public function setPrixReservation(int $prixReservation): void
+    {
+        $this->prixReservation = $prixReservation;
+    }
+
+    /**
      * @param string $dateDebut
      */
     public function setDateDebut (string $dateDebut): void
@@ -119,12 +135,13 @@ class Reservation
      * @param string $dateDebut
      * @param string $dateFin
      */
-    public function __construct(int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut, string $dateFin)
+    public function __construct(int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, int $prixReservation, string $dateDebut, string $dateFin)
     {
         $this->idReservation = $idReservation;
         $this->idUtilisateur = $idUtilisateur;
         $this->idModele = $idModele;
         $this->idForfait = $idForfait;
+        $this->setPrixReservation($prixReservation);
         $this->dateDebut = $dateDebut;
         $this->dateFin = $dateFin;
     }

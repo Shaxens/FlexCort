@@ -33,7 +33,7 @@ class ModeleManager
             $req->execute();
             $resultat = $req->fetch(PDO::FETCH_OBJ);
 
-            return new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance);
+            return new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance, $resultat->DescriptionModele);
         }
         catch (PDOException $e)
         {
@@ -54,7 +54,7 @@ class ModeleManager
             $req->execute();
 
             while ($resultat = $req->fetch(PDO::FETCH_OBJ)) {
-                $listeModele[$index] = new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance);
+                $listeModele[$index] = new Modele($resultat->IdModele, $resultat->Pseudo, $resultat->DateNaissance, $resultat->DescriptionModele);
                 $index +=1;
             }
 
@@ -129,6 +129,23 @@ class ModeleManager
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $newPseudoModele, PDO::PARAM_STR);
+            $req->bindValue(2, $idModele, PDO::PARAM_INT);
+            $req->execute();
+        }
+        catch (PDOException $e)
+        {
+            echo ' ERREUR updatePseudoModele '.$e->getMessage();
+        }
+    }
+
+    public function updateDescriptionModele(int $idModele, string $newDescriptionModele)
+    {
+        try
+        {
+            $sql = "UPDATE MODELE SET DescriptionModele = ? WHERE IdModele = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $newDescriptionModele, PDO::PARAM_STR);
             $req->bindValue(2, $idModele, PDO::PARAM_INT);
             $req->execute();
         }

@@ -1,11 +1,9 @@
 <?php
 require_once 'model/includeModel.php';
 
-$reservationManager = new ReservationManager();
+$modeleManager = new ModeleManager();
 
-
-$reservationManager->creerReservation(1,6,2,'2022-05-23');
-
+$modeleManager->updateDescriptionModele(1, 'Elle est la soeur cachée (et même très bien cachée) de Scarlette Johanson');
 
 
 
