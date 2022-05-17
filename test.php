@@ -3,9 +3,15 @@ require_once 'model/includeModel.php';
 
 $reservationManager = new ReservationManager();
 
+$forfaitManager = new ForfaitManager();
 
-$reservationManager->creerReservation(1,6,2,'2022-05-23');
+$tableauReservationDuModele = $reservationManager->getAllReservationByModele(1);
 
+foreach ($tableauReservationDuModele as $reservation)
+{
+    $forfait = $forfaitManager->getForfaitById($reservation->getIdForfait());
+    echo 'bah ca marche';
+}
 
 
 

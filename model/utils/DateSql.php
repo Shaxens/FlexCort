@@ -19,7 +19,7 @@ abstract class DateSql
         $dateDepart = strtotime($date);
 
         //on calcule et retourne la date de fin
-        return date(DateSql::$format, strtotime('+' .$nbJour. 'days', $dateDepart));
+        return date(DateSql::$format, strtotime('+' .$nbJour . 'days', $dateDepart));
     }
 
     public static function creerTableauDeDateConsecutive(string $date, int $nbJour) : array
@@ -50,9 +50,10 @@ abstract class DateSql
     {
         foreach ($tableauxExistants as $tableauEnCoursDeVerif)
         {
-            foreach ($tableauAVerifier as $dateAVerifier)
+
+            foreach ($tableauEnCoursDeVerif as $dateAVerifier)
             {
-                if (DateSql::estPresenteDansTableauDeDate($dateAVerifier, $tableauEnCoursDeVerif))
+                if (DateSql::estPresenteDansTableauDeDate($dateAVerifier, $tableauAVerifier))
                 {
                     return true;
                 }
