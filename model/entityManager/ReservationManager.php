@@ -60,7 +60,7 @@ class ReservationManager
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
             }
 
             return $tableau;
@@ -85,7 +85,7 @@ class ReservationManager
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
                 $index +=1;
 
             }
@@ -98,7 +98,59 @@ class ReservationManager
         }
     }
 
-    public function checkModelePresent(int $idModele): bool|int
+    public function getAllReservationByUtilisateur(int $idUtilisateur) : array | int
+    {
+        $tableau[] = array();
+        $index = 0;
+        try
+        {
+            $sql = "SELECT * FROM RESERVATION WHERE RESERVATION.IdUtilisateur = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $idUtilisateur, PDO::PARAM_INT);
+            $req->execute();
+
+            while ($res = $req->fetch(PDO::FETCH_OBJ)) {
+                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $index +=1;
+
+            }
+            return $tableau;
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR getAllReservation'.$e->getMessage();
+            return -1;
+        }
+    }
+
+    public function getAllReservationByForfait(int $idForfait) : array | int
+    {
+        $tableau[] = array();
+        $index = 0;
+        try
+        {
+            $sql = "SELECT * FROM RESERVATION WHERE RESERVATION.IdForfait = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $idForfait, PDO::PARAM_INT);
+            $req->execute();
+
+            while ($res = $req->fetch(PDO::FETCH_OBJ)) {
+                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $index +=1;
+
+            }
+            return $tableau;
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR getAllReservation'.$e->getMessage();
+            return -1;
+        }
+    }
+
+    private function checkModelePresent(int $idModele): bool|int
     {
         try
         {
@@ -118,7 +170,7 @@ class ReservationManager
         return -1;
     }
 
-    public function checkDisponibiliteModele(int $idModele, int $idForfait, string $date) : bool
+    private function checkDisponibiliteModele(int $idModele, int $idForfait, string $date) : string|bool
     {
         if (!$this->checkModelePresent($idModele)) // Si le modele n'a aucune reservation on est sur qu'il est disponible
         {
@@ -171,10 +223,11 @@ class ReservationManager
         return -1;
     }
 
-    public function creerReservation(int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut) : Reservation | bool
+    public function creerReservation(int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut) : bool
     {
         $forfaitManager = new ForfaitManager();
         $forfait = $forfaitManager->getForfaitById($idForfait);
+        $prixReservation = $forfait->getPrixForfait();
         $dateFin = DateSql::ajouterJourAUneDate($dateDebut,$forfait->getDureeForfait()-1);
         $idReservation = $this->genererIdUnique();
 
@@ -182,15 +235,16 @@ class ReservationManager
         {
             try
             {
-                $sql = "INSERT INTO RESERVATION(IdReservation, IdUtilisateur, IdModele, IdForfait, DateDebut, DateFin) VALUES (?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO RESERVATION(IdReservation, IdUtilisateur, IdModele, IdForfait, PrixReservation, DateDebut, DateFin) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                 $req = $this->connexionBdd->preparerRequete($sql);
                 $req->bindValue(1, $idReservation, PDO::PARAM_INT);
                 $req->bindValue(2, $idUtilisateur, PDO::PARAM_INT);
                 $req->bindValue(3, $idModele, PDO::PARAM_INT);
                 $req->bindValue(4, $idForfait, PDO::PARAM_INT);
-                $req->bindValue(5, $dateDebut, PDO::PARAM_STR);
-                $req->bindValue(6, $dateFin, PDO::PARAM_STR);
+                $req->bindValue(5, $prixReservation, PDO::PARAM_INT);
+                $req->bindValue(6, $dateDebut, PDO::PARAM_STR);
+                $req->bindValue(7, $dateFin, PDO::PARAM_STR);
                 $req->execute();
 
                 return true;
@@ -200,4 +254,24 @@ class ReservationManager
         }
         return false; // Si la reservation est impossible on retourne false
     }
+
+    public function deleteReservation(int $idReservation): bool
+    {
+        try
+        {
+            $sql = "DELETE FROM RESERVATION WHERE idReservation = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $idReservation, PDO::PARAM_INT);
+            $req->execute();
+
+            return true;
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR deleteForfait'.$e->getMessage();
+        }
+        return false;
+    }
+
 }

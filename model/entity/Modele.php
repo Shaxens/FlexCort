@@ -5,6 +5,7 @@ class Modele
     private int $idModele;
     private string $pseudo;
     private string $dateNaissance;
+    private string $descriptionModele;
 
     // SETTERS
 
@@ -30,6 +31,14 @@ class Modele
     public function setDateNaissance (string $dateNaissance): void
     {
         $this->dateNaissance = $dateNaissance;
+    }
+
+    /**
+     * @param string $descriptionModele
+     */
+    public function setDescriptionModele(string $descriptionModele): void
+    {
+        $this->descriptionModele = $descriptionModele;
     }
 
     //GETTERS
@@ -58,6 +67,14 @@ class Modele
         return $this->dateNaissance;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescriptionModele(): string
+    {
+        return $this->descriptionModele;
+    }
+
     // CONSTRUCTEUR
 
     /**
@@ -65,10 +82,11 @@ class Modele
      * @param String $pseudo
      * @param String $dateNaissance
      */
-    public function __construct (int $idModele, string $pseudo, string $dateNaissance)
+    public function __construct (int $idModele, string $pseudo, string $dateNaissance, string $descriptionModele)
     {
         $this->idModele = $idModele;
         $this->pseudo = $pseudo;
         $this->dateNaissance = $dateNaissance;
+        $this->descriptionModele = $descriptionModele;
     }
 }

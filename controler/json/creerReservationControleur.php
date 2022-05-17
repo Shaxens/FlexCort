@@ -5,9 +5,8 @@ $reservationManager = new ReservationManager();
 $idUtilisateur = 1;
 $idModele = 3;
 $idForfait = 3;
-$date = '2022-7-03';
+$date = '2022-05-16';
 
-$reponse = $reservationManager->creerReservation($idUtilisateur, $idModele, $idForfait, $date);
-$reponseJson = json_encode($reponse);
+/*$reponse = $reservationManager->creerReservation($idUtilisateur, $idModele, $idForfait, $date);
+$reponseJson = json_encode($reponse);*/
 
-echo $reponseJson;

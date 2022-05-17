@@ -1,17 +1,9 @@
 <?php
 require_once 'model/includeModel.php';
 
-$reservationManager = new ReservationManager();
+$modeleManager = new ModeleManager();
 
-$forfaitManager = new ForfaitManager();
-
-$tableauReservationDuModele = $reservationManager->getAllReservationByModele(1);
-
-foreach ($tableauReservationDuModele as $reservation)
-{
-    $forfait = $forfaitManager->getForfaitById($reservation->getIdForfait());
-    echo 'bah ca marche';
-}
+$modeleManager->updateDescriptionModele(1, 'Elle est la soeur cachée (et même très bien cachée) de Scarlette Johanson');
 
 
 
