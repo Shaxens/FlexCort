@@ -116,13 +116,14 @@ function getDateModele(idModele) {
             afficherDate.innerHTML = '';
             afficherForfait.innerHTML = '';
             let date = new Date().toISOString().slice(0, 10);
+            let dateYear = new Date().getFullYear();
             afficherDate.insertAdjacentHTML('beforeend', `
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-9">
                     <input type="date" id="start" name="trip-start"
                     value="${date}"
-                    min="${date}" max="2030-12-31">
+                    min="${date}" max="${dateYear+3}-12-31">
                 </div>
             </div>
             `);
