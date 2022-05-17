@@ -51,7 +51,7 @@ function getModeleById(idModele) {
                     drawer.innerHTML = '';
                     drawer.insertAdjacentHTML('beforeend', `
                 <div>
-                    <div style="width: 240px;" name="${modele.IdModele}">
+                    <div style="width: 300px;" name="${modele.IdModele}">
                         <img src="../images/modeles/${modele.Pseudo}.jpg" class="card-img-top" alt="..." style="border-bottom-right-radius: 30px;">
                         <div class="card-body">
                             <h5 class="modeleDrawer">${modele.Pseudo}</h5>
@@ -80,16 +80,16 @@ function getForfaits() {
             for (forfait of tableauForfaits) {
                 afficherForfait.insertAdjacentHTML('beforeend', `
                 <div class="row">
-                    <div class="col-7"></div>
-                    <div class="col-5">
+                    <div class="col-3"></div>
+                    <div class="col-9">
                         <div name="forfait${forfait.IdForfait}">
-                            <h4>${forfait.NomForfait}</h4>
+                            <h4><label for="radioForfait${forfait.IdForfait}">${forfait.NomForfait}</label></h4>
                             <hr style="background-color: white;height: 5px;border-radius: 10px">
-                            <input type="checkbox" id="checkboxForfait" class="checkbox">
-                            <span class="forfaitPrix">${forfait.Prix} €</span>
+                            <input type="radio" id="radioForfait${forfait.IdForfait}" class="radio" name="forfaitRadio">
+                            <label for="radioForfait${forfait.IdForfait}" class="forfaitPrix">${forfait.Prix} €</label for="radioForfait${forfait.IdForfait}">
                             <div class="card-body">
-                                <p>${forfait.DescriptionForfait}</p>
-                                <p>Durée : ${forfait.DureeForfait} jour(s)</p>
+                                <label for="radioForfait${forfait.IdForfait}">${forfait.DescriptionForfait}</label>
+                                <label for="radioForfait${forfait.IdForfait}">Durée : ${forfait.DureeForfait} jour(s)</label>
                             </div>
                         </div>
                     </div>
@@ -118,10 +118,11 @@ function getDateModele() {
         }).then(response => response.json())
         .then(function(tableauForfaits) {
             afficherDate.innerHTML = '';
-            let mescouilles = `
+
+            afficherDate.insertAdjacentHTML('beforeend', `
             <input type="date" id="start" name="trip-start"
             value="2018-07-22"
             min="2018-01-01" max="2018-12-31">
-            `
+            `);
         })
 }

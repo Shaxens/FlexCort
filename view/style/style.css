@@ -449,18 +449,22 @@ header li a::after {
 }
 
 .drawer {
+    background-image: url("../images/panier/backgroundPanier.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow: auto;
     width: 400px;
-    height: 100vh;
+    height: 97.2vh;
     position: fixed;
     top: 50px;
     right: 0;
-    background: black;
+    /* background-position: -240px; */
     z-index: 100;
     animation: 0.3s linear 0s alternate slideIn;
     display: none;
     transition: 0.5s;
     color: white;
+    border-bottom-left-radius: 70px;
 }
 
 #croix:before {
@@ -484,27 +488,75 @@ header li a::after {
     text-align: center;
 }
 
-.checkbox {
+.radio {
     position: absolute;
-    top: 85px;
+    top: 95px;
     left: 0;
     width: 20px;
     height: 20px;
 }
 
-.checkboxHide {
+.radioHide {
     width: 0;
     height: 0;
 }
 
 .forfaitPrix {
     position: absolute;
-    top: 83px;
+    top: 93px;
     left: -53px;
 }
 
 .forfaitSuivant {
-    position: absolute;
-    right: 20px;
     width: 100px;
+    margin-bottom: 50px;
+}
+
+.radio:not(:empty) {
+    padding-left: 30px;
+}
+
+.radio:before,
+.radio:after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    display: block;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.radio:before {
+    background: #d1d7e3;
+    transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+
+.radio:after {
+    background: #fff;
+    transform: scale(0.78);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+
+.radio:checked:before {
+    transform: scale(1.04);
+    background: #5d9bfb;
+}
+
+.radio:checked:after {
+    transform: scale(0.4);
+    transition: transform 0.3s ease;
+}
+
+.radio:hover:before {
+    transform: scale(0.92);
+}
+
+.radio:hover:after {
+    transform: scale(0.74);
+}
+
+.radio:hover:checked:after {
+    transform: scale(0.4);
 }
