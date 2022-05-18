@@ -5,6 +5,7 @@ window.onload = function() {
         }).then(response => response.json())
         .then(function(tableauReservation) {
             for (reservation of tableauReservation) {
+                console.log(reservation);
                 let reservation = document.getElementById('mesReservations');
                 reservation.insertAdjacentHTML = ('beforeend', `
                     <div class="row">
