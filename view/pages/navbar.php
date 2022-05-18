@@ -17,13 +17,13 @@ session_start([
     <ul>
         <li><a href="index.php">Accueil</a></li>
         <li><a href="modeles.php">Nos Modèles</a></li>
-        <li><a href="contact.php">Contact</a></li>
         <?php
         if (isset($_SESSION['connectOK']))
         {
             if ($_SESSION['connectOK'] == true)
             {
                 echo '<li><a href="compte.php" id="profil">Mon compte</a></li>';
+                echo '<li><a href="panier.php" id="monPanier">Mon panier</a></li>';
             }
             else
             {

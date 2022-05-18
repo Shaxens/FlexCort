@@ -20,60 +20,15 @@
                 <ul>
                     <li><a href="./compte.php">Mes informations</a></li>
                     <li><a href="./reservationsEnCours.php">Mes réservations</a></li>
-                    <li><a href="./reservationsPassees.php">Réservations passées</a></li>
+                    <li><a href="./reservations.php">Réservations passées</a></li>
                     <li><a href="./panier.php">Mon panier</a></li>
                     <li><a href="./cancelPanier.php">Annuler une réservation</a></li>
                 </ul>
-                
-                
-                
-                
             </div>
-            <div class="col">
-
-            </div>
-            <div class="col-5 compte">
-                <form method="post">
-                    <h2>Informations personnelles</h2>
-                    <div class="row">
-                        <div class="col">
-                            <label for="prenom">Prénom :</label>
-                            <input type="text" class="form-control"  id="prenom" name="prenom" value="">
-                        </div>
-                        <div class="col">
-                            <label for="nom">Nom :</label>
-                            <input type="text" class="form-control" id="nom" name="nom" value="">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Adresse mail :</label>
-                        <input type="email" class="form-control" id="email" name="email" value="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Mot de passe :</label>
-                        <input type="password" class="form-control" id="password" name="mdp" value="">
-                        <br>
-                        <button type="submit" class="btn btn-primary" name="btnDeconnexion">Déconnexion</button>
-                    
-                    </div>
-                </form>
-
-                <h2>Mon panier</h2>
-                <form action="">
-
-                </form>
-            </div>
-            <div class="col"></div>
         </div>
     </div>
 </body>
 </html>
 
-<script type="text/javascript" src="../js/compte.js"></script>
 
-
-<?php
-require_once __DIR__ . './../../controler/pageCompteController.php';
-deconnexion();
-?>
+<script type="text/javascript" src="../js/reservationsEnCours.js"></script>

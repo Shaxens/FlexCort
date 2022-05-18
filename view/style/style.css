@@ -218,10 +218,13 @@ header li a::after {
 */
 
 .blueBk {
+    color: white;
     position: fixed;
-    background-color: darkcyan;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background-image: url("../images/autre/backgroundCompte.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    border-bottom-right-radius: 70px;
     height: 96vh;
     width: 25%;
     margin-top: 50px;
@@ -237,10 +240,18 @@ header li a::after {
 .blueBk h2 {
     padding-top: 15px;
     text-align: center;
+    padding-bottom: 40px;
 }
 
 .blueBk li {
     padding-bottom: 15px;
+    animation: 0.3s linear 0s alternate zoomOut;
+    animation-fill-mode: forwards;
+}
+
+.blueBk li:hover {
+    animation: 0.3s linear 0s alternate zoomIn;
+    animation-fill-mode: forwards;
 }
 
 .blueBk ul li a {
@@ -256,6 +267,11 @@ header li a::after {
 #profil {
     position: absolute;
     right: 30px;
+}
+
+#monPanier {
+    position: absolute;
+    right: 10%;
 }
 
 .connexion {
@@ -449,7 +465,7 @@ header li a::after {
 }
 
 .drawer {
-    background-image: url("../images/panier/backgroundPanier.jpg");
+    background-image: url("../images/autre/backgroundPanier.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-y: auto;
@@ -458,7 +474,6 @@ header li a::after {
     position: fixed;
     top: 50px;
     right: 0;
-    /* background-position: -240px; */
     z-index: 100;
     animation: 0.3s linear 0s alternate slideIn;
     display: none;
@@ -579,3 +594,8 @@ header li a::after {
 #btnSuivant {
     display: none;
 }
+
+
+/*
+* Fin gestion dates
+*/

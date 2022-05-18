@@ -51,9 +51,7 @@ function choixDate(idModele) {
 }
 
 function getIdForfaitByRadio() {
-
     var radios = document.querySelector('[name="btnRadio"]:checked');
     console.log(radios.value);
     return radios.value;
-
 }
