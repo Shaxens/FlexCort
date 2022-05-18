@@ -65,56 +65,21 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <h1>Notre parcours</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In illo quis iure quos rerum debitis consectetur, nesciunt excepturi asperiores alias, nemo ut libero nihil ullam quo impedit sint veritatis dolores?</p>
+                    <h1>Petits problèmes</h1>
+                    <p>Nous avons peut être été trop ambitieux avec ce projet</p>
+                    <p>Cette page en temoigne, après d'innombrables heures à corriger des bugs et surtout chercher des solutions</p>
+                    <p>De nombreuses features sont implantés mais nous n'avons pas eu le temps de correctement les paramétrer</p>
                 </div>
                 <div class="col">
-                    <h1>blabla</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur corrupti necessitatibus aliquam maiores quisquam error similique exercitationem, ipsum mollitia ratione modi molestiae totam sed nihil eos voluptatibus accusantium. Placeat, qui!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur corrupti necessitatibus aliquam maiores quisquam error similique exercitationem, ipsum mollitia ratione modi molestiae totam sed nihil eos voluptatibus accusantium. Placeat, qui!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet reprehenderit laboriosam aspernatur eaque doloribus ad, dicta a quis iste praesentium porro deserunt esse. Impedit modi eum vitae vel dolor possimus?
-                    Harum, necessitatibus. Autem, ratione. Molestiae earum praesentium totam possimus quaerat qui alias, impedit voluptates numquam vel molestias officiis eaque necessitatibus corrupti sequi quas deserunt dolorum similique! Omnis minus accusamus necessitatibus!
-                    Ad culpa iusto nulla, dolorem, nisi accusamus delectus animi unde porro cum dolore eveniet vel numquam! Eaque, quisquam totam tempora velit doloribus labore similique repellat debitis, accusamus maiores provident voluptatem?
-                    Obcaecati quae eius impedit libero nam voluptatem vero odio architecto aspernatur! Dicta maxime accusamus quas, officiis aspernatur dignissimos odit velit incidunt laboriosam, labore sint quaerat sed porro vero vitae ab!
-                    Repellendus expedita pariatur tenetur, distinctio earum doloremque accusamus iure quisquam qui dicta ratione, veniam vero, impedit magnam fugiat fuga? Natus quae maiores quam, dignissimos ducimus non? Libero iure quidem iste!
-                    Porro unde fugit, consectetur at earum vel obcaecati ipsum dolore consequatur, reiciendis corporis quisquam nemo doloribus minima aut, assumenda error? Similique sed ipsum saepe temporibus vero numquam, culpa architecto error!
-                    Deleniti maiores blanditiis esse debitis. Repellat laborum necessitatibus voluptatibus repudiandae corrupti, ad, eligendi expedita explicabo quasi esse culpa suscipit odio, laboriosam vero sequi neque aut doloribus sunt error ex quidem?
-                    Quia laudantium consequuntur exercitationem voluptatem, omnis cum minima laborum quos, odio doloremque sapiente vel? Natus, nihil? Accusamus porro nesciunt nulla, dignissimos corporis, sit vero odio dolores omnis temporibus, similique facere.
-                    Corrupti, temporibus delectus quaerat dolorum saepe quas culpa voluptate. Blanditiis laboriosam animi in minus fugit neque eaque? Nihil accusantium, inventore itaque expedita beatae veritatis pariatur esse culpa nam molestiae dolorum?
-                    Ullam rem dolore, provident tempore unde ut odio! Deserunt aspernatur eligendi reiciendis atque excepturi magnam. Minus dolores ducimus labore nihil officiis, eveniet animi, libero dolore quibusdam cumque, qui delectus nisi!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet reprehenderit laboriosam aspernatur eaque doloribus ad, dicta a quis iste praesentium porro deserunt esse. Impedit modi eum vitae vel dolor possimus?
-                    Harum, necessitatibus. Autem, ratione. Molestiae earum praesentium totam possimus quaerat qui alias, impedit voluptates numquam vel molestias officiis eaque necessitatibus corrupti sequi quas deserunt dolorum similique! Omnis minus accusamus necessitatibus!
-                    Ad culpa iusto nulla, dolorem, nisi accusamus delectus animi unde porro cum dolore eveniet vel numquam! Eaque, quisquam totam tempora velit doloribus labore similique repellat debitis, accusamus maiores provident voluptatem?
-                    Obcaecati quae eius impedit libero nam voluptatem vero odio architecto aspernatur! Dicta maxime accusamus quas, officiis aspernatur dignissimos odit velit incidunt laboriosam, labore sint quaerat sed porro vero vitae ab!
-                    Repellendus expedita pariatur tenetur, distinctio earum doloremque accusamus iure quisquam qui dicta ratione, veniam vero, impedit magnam fugiat fuga? Natus quae maiores quam, dignissimos ducimus non? Libero iure quidem iste!
-                    Porro unde fugit, consectetur at earum vel obcaecati ipsum dolore consequatur, reiciendis corporis quisquam nemo doloribus minima aut, assumenda error? Similique sed ipsum saepe temporibus vero numquam, culpa architecto error!
-                    Deleniti maiores blanditiis esse debitis. Repellat laborum necessitatibus voluptatibus repudiandae corrupti, ad, eligendi expedita explicabo quasi esse culpa suscipit odio, laboriosam vero sequi neque aut doloribus sunt error ex quidem?
-                    Quia laudantium consequuntur exercitationem voluptatem, omnis cum minima laborum quos, odio doloremque sapiente vel? Natus, nihil? Accusamus porro nesciunt nulla, dignissimos corporis, sit vero odio dolores omnis temporibus, similique facere.
-                    Corrupti, temporibus delectus quaerat dolorum saepe quas culpa voluptate. Blanditiis laboriosam animi in minus fugit neque eaque? Nihil accusantium, inventore itaque expedita beatae veritatis pariatur esse culpa nam molestiae dolorum?
-                    Ullam rem dolore, provident tempore unde ut odio! Deserunt aspernatur eligendi reiciendis atque excepturi magnam. Minus dolores ducimus labore nihil officiis, eveniet animi, libero dolore quibusdam cumque, qui delectus nisi!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet reprehenderit laboriosam aspernatur eaque doloribus ad, dicta a quis iste praesentium porro deserunt esse. Impedit modi eum vitae vel dolor possimus?
-                    Harum, necessitatibus. Autem, ratione. Molestiae earum praesentium totam possimus quaerat qui alias, impedit voluptates numquam vel molestias officiis eaque necessitatibus corrupti sequi quas deserunt dolorum similique! Omnis minus accusamus necessitatibus!
-                    Ad culpa iusto nulla, dolorem, nisi accusamus delectus animi unde porro cum dolore eveniet vel numquam! Eaque, quisquam totam tempora velit doloribus labore similique repellat debitis, accusamus maiores provident voluptatem?
-                    Obcaecati quae eius impedit libero nam voluptatem vero odio architecto aspernatur! Dicta maxime accusamus quas, officiis aspernatur dignissimos odit velit incidunt laboriosam, labore sint quaerat sed porro vero vitae ab!
-                    Repellendus expedita pariatur tenetur, distinctio earum doloremque accusamus iure quisquam qui dicta ratione, veniam vero, impedit magnam fugiat fuga? Natus quae maiores quam, dignissimos ducimus non? Libero iure quidem iste!
-                    Porro unde fugit, consectetur at earum vel obcaecati ipsum dolore consequatur, reiciendis corporis quisquam nemo doloribus minima aut, assumenda error? Similique sed ipsum saepe temporibus vero numquam, culpa architecto error!
-                    Deleniti maiores blanditiis esse debitis. Repellat laborum necessitatibus voluptatibus repudiandae corrupti, ad, eligendi expedita explicabo quasi esse culpa suscipit odio, laboriosam vero sequi neque aut doloribus sunt error ex quidem?
-                    Quia laudantium consequuntur exercitationem voluptatem, omnis cum minima laborum quos, odio doloremque sapiente vel? Natus, nihil? Accusamus porro nesciunt nulla, dignissimos corporis, sit vero odio dolores omnis temporibus, similique facere.
-                    Corrupti, temporibus delectus quaerat dolorum saepe quas culpa voluptate. Blanditiis laboriosam animi in minus fugit neque eaque? Nihil accusantium, inventore itaque expedita beatae veritatis pariatur esse culpa nam molestiae dolorum?
-                    Ullam rem dolore, provident tempore unde ut odio! Deserunt aspernatur eligendi reiciendis atque excepturi magnam. Minus dolores ducimus labore nihil officiis, eveniet animi, libero dolore quibusdam cumque, qui delectus nisi!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet reprehenderit laboriosam aspernatur eaque doloribus ad, dicta a quis iste praesentium porro deserunt esse. Impedit modi eum vitae vel dolor possimus?
-                    Harum, necessitatibus. Autem, ratione. Molestiae earum praesentium totam possimus quaerat qui alias, impedit voluptates numquam vel molestias officiis eaque necessitatibus corrupti sequi quas deserunt dolorum similique! Omnis minus accusamus necessitatibus!
-                    Ad culpa iusto nulla, dolorem, nisi accusamus delectus animi unde porro cum dolore eveniet vel numquam! Eaque, quisquam totam tempora velit doloribus labore similique repellat debitis, accusamus maiores provident voluptatem?
-                    Obcaecati quae eius impedit libero nam voluptatem vero odio architecto aspernatur! Dicta maxime accusamus quas, officiis aspernatur dignissimos odit velit incidunt laboriosam, labore sint quaerat sed porro vero vitae ab!
-                    Repellendus expedita pariatur tenetur, distinctio earum doloremque accusamus iure quisquam qui dicta ratione, veniam vero, impedit magnam fugiat fuga? Natus quae maiores quam, dignissimos ducimus non? Libero iure quidem iste!
-                    Porro unde fugit, consectetur at earum vel obcaecati ipsum dolore consequatur, reiciendis corporis quisquam nemo doloribus minima aut, assumenda error? Similique sed ipsum saepe temporibus vero numquam, culpa architecto error!
-                    Deleniti maiores blanditiis esse debitis. Repellat laborum necessitatibus voluptatibus repudiandae corrupti, ad, eligendi expedita explicabo quasi esse culpa suscipit odio, laboriosam vero sequi neque aut doloribus sunt error ex quidem?
-                    Quia laudantium consequuntur exercitationem voluptatem, omnis cum minima laborum quos, odio doloremque sapiente vel? Natus, nihil? Accusamus porro nesciunt nulla, dignissimos corporis, sit vero odio dolores omnis temporibus, similique facere.
-                    Corrupti, temporibus delectus quaerat dolorum saepe quas culpa voluptate. Blanditiis laboriosam animi in minus fugit neque eaque? Nihil accusantium, inventore itaque expedita beatae veritatis pariatur esse culpa nam molestiae dolorum?
-                    Ullam rem dolore, provident tempore unde ut odio! Deserunt aspernatur eligendi reiciendis atque excepturi magnam. Minus dolores ducimus labore nihil officiis, eveniet animi, libero dolore quibusdam cumque, qui delectus nisi!</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur corrupti necessitatibus aliquam maiores quisquam error similique exercitationem, ipsum mollitia ratione modi molestiae totam sed nihil eos voluptatibus accusantium. Placeat, qui!</p>
+                    <h1>Descriptif du projet</h1>
+                    <p>FlexCort est une simulation de site d'escort (tourné de façon humouristique)</p>
+                    <p>Un utilisateur peut et doit s'enregistrer pour passer une réservation</p>
+                    <p>Il doit également être connecté</p>
+                    <p>Une fois identifié un utilisateur peut passer une réservation, voir ses informations perso et consulter son panier</p>
+                    <p>Une réservation ne peut être passé uniquement si la date voulue (date du début du forfait choisit) et les dates qui en découlent (date + 1, 2, ou 3 jour suivant le forfait) ne correspondent pas à une date où le modele choisi est réservé</p>
+                    <p>Cette vérification se fait dynamiquement sur le serveur grace à un algorithme</p>
+                    <p>Nous voulions afficher les bons messages d'erreur si la réservation n'est pas possible mais nous ne parvenions pas à correctement récupérer la réponse du serveur pour la réutiliser en front au bon endroit</p>
+                    <p>Les methodes CRUD sont également là, nous devions paramétrer un pannel administrateur pour pouvoir tout modifier à notre guise mais par manque de temps cela est impossible</p>
                 </div>
             </div>
         </div>
