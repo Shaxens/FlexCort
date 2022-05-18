@@ -164,7 +164,7 @@ function boutonConfirmerPrecedent(idModele) {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 if (modele.IdModele == idModele) {
-                    let idForfait = document.querySelector('input[name="btnRadio"]:checked');
+                    let idForfait = document.querySelector('[name="btnRadio"]:checked');
                     console.log(idForfait);
                     let dateVoulue = document.getElementById("calendrier").value;
                     afficherDate.insertAdjacentHTML('beforeend', `
