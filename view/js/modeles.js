@@ -174,24 +174,23 @@ function boutonConfirmerPrecedent(idModele, idForfait) {
                         </div>
                         <div class="col-2"></div>
                         <form method="post" action="../../controler/json/creerReservationControleur.php" class="col-3">
-                            <button onclick="commandeCheck()" class="btn btn-primary forfaitSuivant" id="btnConfirmer" name="btnConfirmer">Confirmer</button>
+                            <button type="submit" class="btn btn-primary forfaitSuivant" id="btnConfirmer" name="btnConfirmer">Confirmer</button>
 
                             <input id="idModele" name="idModele" value="${idModele}" style="display:none;">
                             <input id="idForfait" name="idForfait" value="${idForfait}" style="display:none;">
                             <input id="date" name="date" value="${dateVoulue}" style="display:none;">
                         </form>
                         <div class="col-1"></div>
-
                     </div>
                     `);
+                    console.log('idModele : ' + document.getElementById('idModele').value)
+                    console.log('idForfait : ' + document.getElementById('idForfait').value)
+                    console.log('date : ' + document.getElementById('date').value)
                 }
             }
         })
 }
 
-async function commandeCheck() {
-    await recupReponseReservation();
-}
 
 function recupReponseReservation() {
     fetch('../../controler/json/creerReservationControleur.php', {
@@ -199,7 +198,6 @@ function recupReponseReservation() {
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
         .then(function() {
-
+            alert(response.json);
         })
 }
-

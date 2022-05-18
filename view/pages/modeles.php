@@ -43,7 +43,3 @@
 
 <script src="../../model/entityManager/ModeleManager.php"></script>
 <script src="https://kit.fontawesome.com/9af0f0ccc2.js" crossorigin="anonymous"></script>
-
-<?php
-require_once __DIR__ . './../../controler/json/creerReservationControleur.php';
-creerReservation();
