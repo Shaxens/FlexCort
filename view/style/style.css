@@ -1,0 +1,601 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+}
+
+h1,
+h3 {
+    text-align: center;
+}
+
+header {
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header ul {
+    margin: 0;
+    min-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+header li {
+    display: inline;
+    font-size: 1.5em;
+    padding-left: 70px;
+    height: 50px;
+    color: white;
+    vertical-align: middle;
+}
+
+header li a {
+    color: white;
+    text-decoration: none;
+}
+
+header li a::after {
+    color: white;
+}
+
+
+/* 
+* Image de background
+*/
+
+.colBk {
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.colBk div {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 
+* Fin image de background
+* Gestion du carousel
+*/
+
+#carouselGlobal {
+    text-align: center;
+}
+
+#carousel {
+    height: 500px;
+    width: 400px;
+    border: solid 4px #fff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#carouselCol {
+    margin-top: 50px;
+    color: white;
+}
+
+#containerCarousel {
+    height: 500px;
+    width: 400px;
+}
+
+.photo {
+    height: 500px;
+    width: 400px;
+    margin: 0;
+    display: inline-block;
+    background-size: cover;
+}
+
+
+/* 
+* Gestion des flèches du carousel
+*/
+
+.bouton {
+    position: absolute;
+    width: 70px;
+    cursor: pointer;
+    top: 207px;
+}
+
+#g {
+    left: 0;
+    opacity: 0.4;
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+}
+
+#d {
+    right: 0;
+    opacity: 0.4;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+}
+
+#g:hover {
+    transform: rotate(180deg) scale(1.1);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+#d:hover {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+
+/* 
+* Fin Gestion du carousel
+* Texte dans Index
+*/
+
+#contenu {
+    border-radius: 5px;
+}
+
+#contenu h1 {
+    padding-top: 50px;
+}
+
+
+/*
+* Fin texte Index
+* Flèche de défilement + animation pulse
+*/
+
+#defilement {
+    position: relative;
+    top: 80px;
+}
+
+#defilement img {
+    transform: rotate(180deg);
+    border-radius: 155px;
+    max-width: 140px;
+}
+
+#defilement img:hover {
+    /* transform: rotate(180deg) scale(1.1); */
+    animation: 1.2s linear 0s infinite alternate pulseFleche;
+}
+
+@keyframes pulseFleche {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: rotate(180deg) scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: rotate(180deg) scale3d(1, 1, 1);
+    }
+}
+
+
+/*
+* Fin flèche de défilement
+* Connexion au compte
+*/
+
+#doigts {
+    position: absolute;
+    top: -80px;
+    left: -50px;
+    z-index: -1;
+}
+
+#shh {
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    z-index: -1;
+}
+
+
+/* 
+* Fin connexion au compte
+* Mon compte
+*/
+
+.blueBk {
+    color: white;
+    position: fixed;
+    background-image: url("../images/autre/backgroundCompte.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    border-bottom-right-radius: 70px;
+    height: 96vh;
+    width: 25%;
+    margin-top: 50px;
+    z-index: 100;
+}
+
+.blueBk ul {
+    list-style: none;
+    font-size: 1.2rem;
+    padding-left: 60px;
+}
+
+.blueBk h2 {
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.blueBk li {
+    padding-bottom: 15px;
+    animation: 0.3s linear 0s alternate zoomOut;
+    animation-fill-mode: forwards;
+}
+
+.blueBk li:hover {
+    animation: 0.3s linear 0s alternate zoomIn;
+    animation-fill-mode: forwards;
+}
+
+.blueBk ul li a {
+    color: white;
+}
+
+
+/*
+* Fin mon compte
+* Création du compte
+*/
+
+#profil {
+    position: absolute;
+    right: 30px;
+}
+
+#monPanier {
+    position: absolute;
+    right: 10%;
+}
+
+.connexion {
+    padding-top: 320px;
+}
+
+.compte {
+    padding-top: 100px;
+}
+
+.pinup1 img {
+    transform: rotate(5deg);
+}
+
+.pinup2 img {
+    transform: rotate(345deg);
+    z-index: -1;
+    position: relative;
+    top: 30px;
+}
+
+
+/*
+* Fin création du compte
+* Mise en place du loader (test)
+*/
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 2000;
+    /* animation: fadeOut 2s linear 0s forwards; */
+    animation-name: fadeOut, displayNone;
+    animation-duration: 2s, 0s;
+    animation-delay: 0s, 2s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: linear, linear;
+}
+
+.loader {
+    width: 120px;
+    height: 120px;
+    z-index: 2001;
+}
+
+.loader img {
+    animation: spin 2s linear infinite;
+    animation-name: spin, displayNone;
+    animation-duration: 2s, 0s;
+    animation-delay: 0s, 2s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: linear, linear;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes displayNone {
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+.parallax {
+    background-image: url("../images/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxVip {
+    background-image: url("../images/background_vip.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* 
+* Fin Loader
+* Debut Cards modèles
+*/
+
+@keyframes zoomIn {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.zoomCard:hover {
+    animation: 0.3s linear 0s alternate zoomIn;
+    animation-fill-mode: forwards;
+}
+
+.zoomCard {
+    animation: 0.3s linear 0s alternate zoomOut;
+    animation-fill-mode: forwards;
+}
+
+#hr {
+    height: 5px;
+    border-radius: 10px;
+    background-color: darkmagenta;
+}
+
+
+/*
+* Fin Cards modèles
+* Debut panier Modèles
+*/
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(400px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+@keyframes zoomInCroix {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1.15, 1.15, 1.15);
+        transform: scale3d(1.15, 1.15, 1.15);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes zoomOutCroix {
+    0% {
+        -webkit-transform: scale3d(1.15, 1.15, 1.15);
+        transform: scale3d(1.15, 1.15, 1.15);
+        transform: rotate(90deg);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        transform: rotate(0deg);
+    }
+}
+
+.drawer {
+    background-image: url("../images/autre/backgroundPanier.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 97.2vh;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    z-index: 100;
+    animation: 0.3s linear 0s alternate slideIn;
+    display: none;
+    transition: 0.5s;
+    color: white;
+    border-bottom-left-radius: 70px;
+}
+
+#croix:before {
+    animation: 0.3s linear 0s alternate slideIn;
+}
+
+#croix {
+    position: fixed;
+    top: 70px;
+    right: 40px;
+    color: gray;
+    animation: 0.3s linear 0s alternate zoomOutCroix;
+}
+
+#croix:hover {
+    color: white;
+    animation: 0.3s linear 0s alternate zoomInCroix forwards;
+}
+
+.modeleDrawer {
+    text-align: center;
+}
+
+.forfaitPrix {
+    position: absolute;
+    top: 93px;
+    left: -53px;
+}
+
+.forfaitSuivant {
+    width: 100px;
+    margin-bottom: 50px;
+}
+
+
+/*
+* Mise en page des boutons radios dans la selection du forfait
+*/
+
+.radio {
+    position: absolute;
+    top: 95px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.radioHide {
+    width: 0;
+    height: 0;
+}
+
+.radio:not(:empty) {
+    padding-left: 30px;
+}
+
+.radio:before,
+.radio:after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    display: block;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.radio:before {
+    background: #d1d7e3;
+    transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+
+.radio:after {
+    background: #fff;
+    transform: scale(0.78);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+
+.radio:checked:before {
+    transform: scale(1.04);
+    background: #5d9bfb;
+}
+
+.radio:checked:after {
+    transform: scale(0.4);
+    transition: transform 0.3s ease;
+}
+
+.radio:hover:before {
+    transform: scale(0.92);
+}
+
+.radio:hover:after {
+    transform: scale(0.74);
+}
+
+.radio:hover:checked:after {
+    transform: scale(0.4);
+}
+
+
+/*
+* Fin mise en page des boutons radios
+* Gestion dates
+*/
+
+#date {
+    margin-bottom: 100%;
+}
+
+#btnSuivant {
+    display: none;
+}
+
+
+/*
+* Fin gestion dates
+*/
