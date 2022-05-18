@@ -86,7 +86,7 @@ function getForfaits(idModele) {
                             <h4><label for="radioForfait${forfait.IdForfait}">${forfait.NomForfait}</label></h4>
                             <hr style="background-color: white;height: 5px;border-radius: 10px">
 
-                            <input type="radio" id="radioForfait${forfait.IdForfait}" class="radio" name="forfaitRadio" value="${forfait.IdForfait}" onclick="radio(${idModele})">
+                            <input type="radio" id="radioForfait${forfait.IdForfait}" class="radio" name="btnRadio" value="${forfait.IdForfait}" onclick="radio(${idModele})">
                             
                             <label for="radioForfait${forfait.IdForfait}" class="forfaitPrix">${forfait.Prix} €</label for="radioForfait${forfait.IdForfait}">
                             <div class="card-body">
@@ -108,7 +108,7 @@ function getForfaits(idModele) {
  * @var Date $dateYear On récupère l'année en cours, ${dateYear+3} ensuite on ajoute 3 pour réserver dans maximum 3 ans.
  */
 
-function getDateModele(idModele) {
+function setDate() {
     fetch("../../controler/json/allReservationJson.php", {
             method: "POST",
             body: JSON.stringify(),
@@ -123,7 +123,7 @@ function getDateModele(idModele) {
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4" style="text-align: center;">
-                    <input type="date" id="start" name="start-date"
+                    <input type="date" id="calendrier" name="calendrier"
                     value="${date}"
                     min="${date}" max="${dateYear+3}-12-31">
                 </div>
@@ -133,7 +133,7 @@ function getDateModele(idModele) {
         })
 }
 
-function boutonSuivant(idModele, idForfait) {
+function boutonSuivant(idModele) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -146,7 +146,7 @@ function boutonSuivant(idModele, idForfait) {
                     <div class="row">
                         <div class="col-7"></div>
                         <div class="col-5">
-                            <button onclick="choixDate(${idModele}, ${idForfait})" class="btn btn-primary forfaitSuivant" id="btnSuivant">Suivant</button>
+                            <button onclick="choixDate(${idModele})" class="btn btn-primary forfaitSuivant" id="btnSuivant">Suivant</button>
                         </div>
                     </div>
                     `);
@@ -155,7 +155,7 @@ function boutonSuivant(idModele, idForfait) {
         })
 }
 
-function boutonSuivantPrecedent(idModele, date) {
+function boutonConfirmerPrecedent(idModele) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -164,8 +164,9 @@ function boutonSuivantPrecedent(idModele, date) {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 if (modele.IdModele == idModele) {
-                    getIdForfaitByRadio();
-                    var idForfait = getIdForfaitByRadio();
+                    let idForfait = document.querySelector('input[name="btnRadio"]:checked');
+                    console.log(idForfait);
+                    let dateVoulue = document.getElementById("calendrier").value;
                     afficherDate.insertAdjacentHTML('beforeend', `
                     <div class="row">
                         <div class="col-2"></div>
@@ -178,7 +179,7 @@ function boutonSuivantPrecedent(idModele, date) {
 
                             <input id="idModele" name="idModele" value="${idModele}" style="display:none;">
                             <input id="idForfait" name="idForfait" value="${idForfait}" style="display:none;">
-                            <input id="date" name="date" value="${date}" style="display:none;">
+                            <input id="date" name="date" value="${dateVoulue}" style="display:none;">
                         </div>
                         <div class="col-1"></div>
 

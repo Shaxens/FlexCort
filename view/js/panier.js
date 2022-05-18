@@ -35,22 +35,23 @@ function fermerPanier() {
     masquerPanier.style.width = "0";
     bouton.style.display = "none";
     afficherCard.style.opacity = "1";
-    console.log(document.getElementById('idModele').value);
-    console.log(document.getElementById('date').value);
-    console.log(document.getElementById('idForfait').value);
+    console.log(document.getElementById('idModele').value); // OK
+    console.log(document.getElementById("calendrier").value); // OK
+    console.log(document.getElementById('idForfait').value); // Pas bon
 
 }
 
 function choixDate(idModele) {
-    getDateModele(idModele);
-    boutonSuivantPrecedent(idModele, date);
+    getIdForfaitByRadio();
+    setDate(idModele);
+    boutonConfirmerPrecedent(idModele);
 }
 
 function getIdForfaitByRadio() {
-    var radios = document.getElementsByName('forfaitRadio');
+
+    var radios = document.querySelectorAll('[name="btnRadio"]');
     var valeur;
     for (var i = 0; i < radios.length; i++) {
-        console.log(radio[i].value);
         if (radios[i].checked) {
             valeur = radios[i].value;
         }
