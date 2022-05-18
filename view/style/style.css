@@ -599,3 +599,9 @@ header li a::after {
 /*
 * Fin gestion dates
 */
+
+#hrDeMort {
+    height: 5px;
+    border-radius: 10px;
+    background-color: blue;
+}

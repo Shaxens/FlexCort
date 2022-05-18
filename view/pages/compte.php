@@ -25,9 +25,6 @@
                     <li><a href="./cancelPanier.php">Annuler une réservation</a></li>
                 </ul>
                 
-                
-                
-                
             </div>
             <div class="col">
 
