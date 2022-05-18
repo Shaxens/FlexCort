@@ -26,7 +26,7 @@ class ModeleManager
     {
         try
         {
-            $sql = "SELECT IdModele, Pseudo, DateNaissance FROM MODELE WHERE MODELE.IdModele = ?";
+            $sql = "SELECT IdModele, Pseudo, DateNaissance, DescriptionModele FROM MODELE WHERE MODELE.IdModele = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
             $req->bindValue(1, $idModele, PDO::PARAM_INT);

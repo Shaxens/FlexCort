@@ -223,7 +223,7 @@ class ReservationManager
         return -1;
     }
 
-    public function creerReservation(int $idUtilisateur, int $idModele, int $idForfait, string $dateDebut) : bool
+    public function creerReservation(string $mailUtilisateur, int $idModele, int $idForfait, string $dateDebut) : bool
     {
         $forfaitManager = new ForfaitManager();
         $forfait = $forfaitManager->getForfaitById($idForfait);
@@ -235,11 +235,11 @@ class ReservationManager
         {
             try
             {
-                $sql = "INSERT INTO RESERVATION(IdReservation, IdUtilisateur, IdModele, IdForfait, PrixReservation, DateDebut, DateFin) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO RESERVATION(IdReservation, MailUtilisateur, IdModele, IdForfait, PrixReservation, DateDebut, DateFin) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                 $req = $this->connexionBdd->preparerRequete($sql);
                 $req->bindValue(1, $idReservation, PDO::PARAM_INT);
-                $req->bindValue(2, $idUtilisateur, PDO::PARAM_INT);
+                $req->bindValue(2, $mailUtilisateur, PDO::PARAM_STR);
                 $req->bindValue(3, $idModele, PDO::PARAM_INT);
                 $req->bindValue(4, $idForfait, PDO::PARAM_INT);
                 $req->bindValue(5, $prixReservation, PDO::PARAM_INT);
