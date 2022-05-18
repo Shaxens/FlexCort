@@ -174,7 +174,7 @@ function boutonConfirmerPrecedent(idModele, idForfait) {
                         </div>
                         <div class="col-2"></div>
                         <form method="post" action="../../controler/json/creerReservationControleur.php" class="col-3">
-                            <button onclick="commandeCheck()" class="btn btn-primary forfaitSuivant" id="btnConfirmer">Confirmer</button>
+                            <button onclick="commandeCheck()" class="btn btn-primary forfaitSuivant" id="btnConfirmer" name="btnConfirmer">Confirmer</button>
 
                             <input id="idModele" name="idModele" value="${idModele}" style="display:none;">
                             <input id="idForfait" name="idForfait" value="${idForfait}" style="display:none;">
@@ -202,3 +202,4 @@ function recupReponseReservation() {
 
         })
 }
+
