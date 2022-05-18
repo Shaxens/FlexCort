@@ -7,20 +7,23 @@ function afficherPanier(idModele) {
     let afficherPanier = document.getElementById("drawer");
     let afficherCard = document.getElementById("afficherCard");
     let bouton = document.getElementById("croix");
+    let radio = document.getElementsByName('btnRadio');
     afficherCard.style.opacity = "0.7";
     afficherPanier.style.display = "block";
     afficherPanier.style.width = "23%";
     bouton.style.display = "block";
     getModeleById(idModele);
     getForfaits(idModele);
-    boutonSuivant(idModele);
-
-
+    let idForfait = null;
+    if (!radio.checked) {
+        idForfait = document.querySelector('[name="btnRadio"]:checked');
+        console.log(idForfait);
+    }
+    boutonSuivant(idModele, idForfait);
 }
 
 function radio(idModele) {
-
-    let radio = document.getElementsByName('forfaitRadio');
+    let radio = document.getElementsByName('btnRadio');
     let btnSuivant = document.getElementById('btnSuivant');
     if (!radio.checked) {
         btnSuivant.style.display = "block";
@@ -42,20 +45,15 @@ function fermerPanier() {
 }
 
 function choixDate(idModele) {
-    getIdForfaitByRadio();
+    let idForfait = getIdForfaitByRadio();
     setDate(idModele);
-    boutonConfirmerPrecedent(idModele);
+    boutonConfirmerPrecedent(idModele, idForfait);
 }
 
 function getIdForfaitByRadio() {
 
-    var radios = document.querySelectorAll('[name="btnRadio"]');
-    var valeur;
-    for (var i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-            valeur = radios[i].value;
-        }
-    }
-    return valeur;
+    var radios = document.querySelector('[name="btnRadio"]:checked');
+    console.log(radios.value);
+    return radios.value;
 
 }

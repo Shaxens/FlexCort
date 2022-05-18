@@ -3,6 +3,7 @@ const afficherCard = document.getElementById("afficherCard");
 const afficherForfait = document.getElementById("contenuForfait");
 const afficherDate = document.getElementById("contenuDate");
 const radioButtons = document.querySelectorAll('input[name="size"]');
+let commandePassee = false;
 
 /*
  * On récupère tous les modèles et on les ajoute dans le html
@@ -133,7 +134,7 @@ function setDate() {
         })
 }
 
-function boutonSuivant(idModele) {
+function boutonSuivant(idModele, idForfait) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -155,7 +156,7 @@ function boutonSuivant(idModele) {
         })
 }
 
-function boutonConfirmerPrecedent(idModele) {
+function boutonConfirmerPrecedent(idModele, idForfait) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -164,8 +165,6 @@ function boutonConfirmerPrecedent(idModele) {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 if (modele.IdModele == idModele) {
-                    let idForfait = document.querySelector('input[name="btnRadio"]:checked');
-                    console.log(idForfait);
                     let dateVoulue = document.getElementById("calendrier").value;
                     afficherDate.insertAdjacentHTML('beforeend', `
                     <div class="row">
@@ -174,18 +173,32 @@ function boutonConfirmerPrecedent(idModele) {
                         <button onclick="afficherPanier(${idModele})" class="btn btn-primary forfaitSuivant">Précédent</button>
                         </div>
                         <div class="col-2"></div>
-                        <div class="col-3">
-                            <button onclick="fermerPanier()" class="btn btn-primary forfaitSuivant" id="btnConfirmer">Confirmer</button>
+                        <form method="post" action="../../controler/json/creerReservationControleur.php" class="col-3">
+                            <button onclick="commandeCheck()" class="btn btn-primary forfaitSuivant" id="btnConfirmer">Confirmer</button>
 
                             <input id="idModele" name="idModele" value="${idModele}" style="display:none;">
                             <input id="idForfait" name="idForfait" value="${idForfait}" style="display:none;">
                             <input id="date" name="date" value="${dateVoulue}" style="display:none;">
-                        </div>
+                        </form>
                         <div class="col-1"></div>
 
                     </div>
                     `);
                 }
             }
+        })
+}
+
+async function commandeCheck() {
+    await recupReponseReservation();
+}
+
+function recupReponseReservation() {
+    fetch('../../controler/json/creerReservationControleur.php', {
+            method: "GET",
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        }).then(response => response.json())
+        .then(function() {
+
         })
 }
