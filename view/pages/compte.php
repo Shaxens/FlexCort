@@ -32,7 +32,7 @@
 
             </div>
             <div class="col-5 compte">
-                <form>
+                <form method="post">
                     <h2>Informations personnelles</h2>
                     <div class="row">
                         <div class="col">
@@ -66,18 +66,8 @@
             <div class="col"></div>
         </div>
     </div>
-
-
-
 </body>
 </html>
-
-<?php 
-    if (isset($_GET['btnDeconnexion'])) {
-        $_SESSION = array();
-        unset($_COOKIE);
-        setcookie(session_name(), '', time()- 86400);
-        session_destroy();
-        header("Refresh:0; url=index.php"); // On rafraichit la page et on redirige vers la page index, permet d'effectuer correctement le unset des cookies
-    }
-    ?>
+<?php
+require_once __DIR__ . './../../controler/pageCompteController.php';
+deconnexion();

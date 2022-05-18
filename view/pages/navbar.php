@@ -21,14 +21,20 @@ session_start([
         <?php
         if (isset($_SESSION['connectOK']))
         {
-            echo '<li><a href="compte.php" id="profil">Mon compte</a></li>';
+            if ($_SESSION['connectOK'] == true)
+            {
+                echo '<li><a href="compte.php" id="profil">Mon compte</a></li>';
+            }
+            else
+            {
+                echo '<li><a href="connexion.php" id="profil">Se connecter</a></li>';
+            }
         }
         else
         {
             echo '<li><a href="connexion.php" id="profil">Se connecter</a></li>';
         }
         ?>
-
     </ul>
 </nav>
 </header>

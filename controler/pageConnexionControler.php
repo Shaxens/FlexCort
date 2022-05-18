@@ -8,19 +8,15 @@ function connexion()
     if (isset($_POST['btnConnexion']))
     {
         $email = htmlentities($_POST['mail']);
-        $mdp = $_POST['password'];
+        $mdp = htmlentities($_POST['password']);
         $utilisateur = $utilisateurManager->getUtilisateur($email);
         if ($mdp == $utilisateur->getMdp())
         {
-            $_SESSION['utilisateurConnecte'] = $utilisateur;
+            $_SESSION['utilisateurConnecteIdMail'] = $email;
             $_SESSION['connectOK'] = true;
-            echo $_SESSION['utilisateurConnecte']->getPrenom() . ' connecté';
-            header("Refresh:0; url=index.php");
-
-        }
-        else
-        {
-            echo "mdp incorrect";
+            echo '<script language="JavaScript" type="text/javascript">
+                    window.location.replace("index.php");
+                  </script>';
         }
     }
 }
