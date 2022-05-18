@@ -60,7 +60,7 @@ class ReservationManager
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->MailUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
             }
 
             return $tableau;
@@ -85,7 +85,7 @@ class ReservationManager
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->MailUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
                 $index +=1;
 
             }
@@ -98,7 +98,7 @@ class ReservationManager
         }
     }
 
-    public function getAllReservationByUtilisateur(int $idUtilisateur) : array | int
+    public function getAllReservationByUtilisateur(string $mailUtilisateur) : array | int
     {
         $tableau[] = array();
         $index = 0;
@@ -107,11 +107,11 @@ class ReservationManager
             $sql = "SELECT * FROM RESERVATION WHERE RESERVATION.IdUtilisateur = ?";
 
             $req = $this->connexionBdd->preparerRequete($sql);
-            $req->bindValue(1, $idUtilisateur, PDO::PARAM_INT);
+            $req->bindValue(1, $mailUtilisateur, PDO::PARAM_STR);
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->MailUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
                 $index +=1;
 
             }
@@ -137,7 +137,7 @@ class ReservationManager
             $req->execute();
 
             while ($res = $req->fetch(PDO::FETCH_OBJ)) {
-                $tableau[$index] = new Reservation($res->IdReservation, $res->IdUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
+                $tableau[$index] = new Reservation($res->IdReservation, $res->MailUtilisateur, $res->IdModele, $res->IdForfait, $res->PrixReservation, $res->DateDebut, $res->DateFin);
                 $index +=1;
 
             }

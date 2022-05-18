@@ -1,17 +1,10 @@
 <?php
-session_start();
 require_once __DIR__ . './../../model/includeModel.php';
+session_start();
 
-$reservationManager = new ReservationManager();
+$utilisateurManager = new UtilisateurManager();
 
-$mailUtilisateur = null;
 if (isset($_SESSION['utilisateurConnecteIdMail']) && $_SESSION['utilisateurConnecteIdMail'] != null)
 {
-    $mailUtilisateur = $_SESSION['utilisateurConnecteIdMail'];
+    echo $utilisateurManager->creerUtilisateurFormatJson($_SESSION['utilisateurConnecteIdMail']);
 }
-
-
-
-
-
-

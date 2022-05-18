@@ -5,7 +5,7 @@ class Reservation
 {
     // ATTRIBUT
     private int $idReservation;
-    private int $idUtilisateur;
+    private string $mailUtilisateur;
     private int $idModele;
     private int $idForfait;
     private int $prixReservation;
@@ -22,11 +22,11 @@ class Reservation
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getIdUtilisateur (): int
+    public function getmaildUtilisateur (): int
     {
-        return $this->idUtilisateur;
+        return $this->mailUtilisateur;
     }
 
     /**
@@ -80,11 +80,11 @@ class Reservation
     }
 
     /**
-     * @param int $idUtilisateur
+     * @param string $mailUtilisateur
      */
-    public function setIdUtilisateur (int $idUtilisateur): void
+    public function setMailUtilisateur (string $mailUtilisateur): void
     {
-        $this->idUtilisateur = $idUtilisateur;
+        $this->mailUtilisateur = $mailUtilisateur;
     }
 
     /**
@@ -129,16 +129,16 @@ class Reservation
     // CONSTRUCTEUR
     /**
      * @param int $idReservation
-     * @param int $idUtilisateur
+     * @param string $mailUtilisateur
      * @param int $idModele
      * @param int $idForfait
      * @param string $dateDebut
      * @param string $dateFin
      */
-    public function __construct(int $idReservation, int $idUtilisateur, int $idModele, int $idForfait, int $prixReservation, string $dateDebut, string $dateFin)
+    public function __construct(int $idReservation, string $mailUtilisateur, int $idModele, int $idForfait, int $prixReservation, string $dateDebut, string $dateFin)
     {
         $this->idReservation = $idReservation;
-        $this->idUtilisateur = $idUtilisateur;
+        $this->mailUtilisateur = $mailUtilisateur;
         $this->idModele = $idModele;
         $this->idForfait = $idForfait;
         $this->setPrixReservation($prixReservation);

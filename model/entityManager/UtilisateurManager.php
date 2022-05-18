@@ -39,6 +39,18 @@ class UtilisateurManager {
         }
     }
 
+    public function creerUtilisateurFormatJson(string $mail)
+    {
+        $sql = "SELECT Nom, Prenom, Mail, Mdp, EstAdmin FROM UTILISATEUR WHERE UTILISATEUR.mail = ?";
+
+        $req = $this->connexionBdd->preparerRequete($sql);
+        $req->bindValue(1, $mail, PDO::PARAM_STR);
+        $req->execute();
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+
+        return json_encode($resultat);
+    }
+
     public function getUtilisateur(string $mail): Utilisateur|int
     {
         try
