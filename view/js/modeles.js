@@ -1,5 +1,5 @@
 const drawer = document.getElementById("contenuDrawer");
-const afficherTaches = document.getElementById("afficherCard");
+const afficherCard = document.getElementById("afficherCard");
 const afficherForfait = document.getElementById("contenuForfait");
 const afficherDate = document.getElementById("contenuDate");
 const radioButtons = document.querySelectorAll('input[name="size"]');
@@ -59,7 +59,7 @@ function getModeleById(idModele) {
                         </div>
                     </div>
                 </div>
-                `)
+                `);
                 }
             }
         })
@@ -82,10 +82,12 @@ function getForfaits(idModele) {
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-9">
-                        <div name="forfait${forfait.IdForfait}">
+                        <div name="forfait${forfait.IdForfait}" id="idForfaitPanier" value="${forfait.IdForfait}">
                             <h4><label for="radioForfait${forfait.IdForfait}">${forfait.NomForfait}</label></h4>
                             <hr style="background-color: white;height: 5px;border-radius: 10px">
-                            <input type="radio" id="radioForfait${forfait.IdForfait}" class="radio" name="forfaitRadio">
+
+                            <input type="radio" id="radioForfait${forfait.IdForfait}" class="radio" name="forfaitRadio" value="${forfait.IdForfait}" onclick="radio(${idModele})">
+                            
                             <label for="radioForfait${forfait.IdForfait}" class="forfaitPrix">${forfait.Prix} €</label for="radioForfait${forfait.IdForfait}">
                             <div class="card-body">
                                 <label for="radioForfait${forfait.IdForfait}">${forfait.DescriptionForfait}</label>
@@ -108,7 +110,7 @@ function getForfaits(idModele) {
 
 function getDateModele(idModele) {
     fetch("../../controler/json/allReservationJson.php", {
-            method: "PUT",
+            method: "POST",
             body: JSON.stringify(),
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
@@ -119,18 +121,19 @@ function getDateModele(idModele) {
             let dateYear = new Date().getFullYear();
             afficherDate.insertAdjacentHTML('beforeend', `
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-9">
-                    <input type="date" id="start" name="trip-start"
+                <div class="col-4"></div>
+                <div class="col-4" style="text-align: center;">
+                    <input type="date" id="start" name="start-date"
                     value="${date}"
                     min="${date}" max="${dateYear+3}-12-31">
                 </div>
+                <div class="col-4"></div>
             </div>
             `);
         })
 }
 
-function boutonSuivant(idModele) {
+function boutonSuivant(idModele, idForfait) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -143,16 +146,16 @@ function boutonSuivant(idModele) {
                     <div class="row">
                         <div class="col-7"></div>
                         <div class="col-5">
-                            <button onclick="choixDate(${idModele})" class="btn btn-primary forfaitSuivant">Suivant</button>
+                            <button onclick="choixDate(${idModele}, ${idForfait})" class="btn btn-primary forfaitSuivant" id="btnSuivant">Suivant</button>
                         </div>
                     </div>
-                    `)
+                    `);
                 }
             }
         })
 }
 
-function boutonSuivantPrecedent(idModele) {
+function boutonSuivantPrecedent(idModele, date) {
     fetch('../../controler/json/allModelesJson.php', {
             method: "GET",
             headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -161,15 +164,26 @@ function boutonSuivantPrecedent(idModele) {
         .then(function(tableauModeles) {
             for (modele of tableauModeles) {
                 if (modele.IdModele == idModele) {
+                    getIdForfaitByRadio();
+                    var idForfait = getIdForfaitByRadio();
                     afficherDate.insertAdjacentHTML('beforeend', `
                     <div class="row">
-                        <div class="col-7"></div>
-                        <div class="col-5">
-                            <button onclick="afficherPanier(${modele.IdModele})" class="btn btn-primary forfaitSuivant">Précédent</button>
-                            <button onclick="fermerPanier()" class="btn btn-primary forfaitSuivant">Confirmer</button>
+                        <div class="col-2"></div>
+                        <div class="col-3">
+                        <button onclick="afficherPanier(${idModele})" class="btn btn-primary forfaitSuivant">Précédent</button>
                         </div>
+                        <div class="col-2"></div>
+                        <div class="col-3">
+                            <button onclick="fermerPanier()" class="btn btn-primary forfaitSuivant" id="btnConfirmer">Confirmer</button>
+
+                            <input id="idModele" name="idModele" value="${idModele}" style="display:none;">
+                            <input id="idForfait" name="idForfait" value="${idForfait}" style="display:none;">
+                            <input id="date" name="date" value="${date}" style="display:none;">
+                        </div>
+                        <div class="col-1"></div>
+
                     </div>
-                    `)
+                    `);
                 }
             }
         })

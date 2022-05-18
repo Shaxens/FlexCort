@@ -452,8 +452,8 @@ header li a::after {
     background-image: url("../images/panier/backgroundPanier.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: auto;
-    width: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 97.2vh;
     position: fixed;
     top: 50px;
@@ -569,4 +569,13 @@ header li a::after {
 
 /*
 * Fin mise en page des boutons radios
+* Gestion dates
 */
+
+#date {
+    margin-bottom: 100%;
+}
+
+#btnSuivant {
+    display: none;
+}
