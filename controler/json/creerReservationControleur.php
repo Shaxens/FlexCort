@@ -6,6 +6,7 @@ $reservationManager = new ReservationManager();
 $modeleManager = new ModeleManager();
 $utilisateurManager = new UtilisateurManager();
 
+
 if (isset($_POST['btnConfirmer'])) {
     $mailUtilisateur = $_SESSION['utilisateurConnecteIdMail'];
     $idModele = htmlentities($_POST['idModele']);
@@ -19,16 +20,16 @@ if (isset($_POST['btnConfirmer'])) {
     $reponse = $reservationManager->creerReservation($mailUtilisateur, $idModele, $idForfait, $dateBonFormat);
     if ($reponse == false)
     {
-        echo 'Désolé ' . $utilisateur->getPrenom() . ', mais ' . $modele->getPseudo() . ' ne pourra pas s\'occuper de toi, ces dates lui sont déjà prises...';
+        echo json_encode('Désolé ' . $utilisateur->getPrenom() . ', mais ' . $modele->getPseudo() . ' ne pourra pas s\'occuper de toi, ces dates lui sont déjà prises...');
     }
     else
     {
-        echo 'Réservation effectué, ' . $modele->getPseudo() . ' a déjà hâte de s\'occuper de toi !)';
+        echo json_encode('Réservation effectué, ' . $modele->getPseudo() . ' a déjà hâte de s\'occuper de toi !)');
     }
 }
 else
 {
-    echo 'Aucun utilistateur n\'est connecté';
+    echo json_encode('Aucun utilistateur n\'est connecté');
 }
 
 
