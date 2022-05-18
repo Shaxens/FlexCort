@@ -1,12 +1,17 @@
 <?php
+session_start();
 require_once __DIR__ . './../../model/includeModel.php';
 
 $reservationManager = new ReservationManager();
-$idUtilisateur = 1;
-$idModele = 3;
-$idForfait = 3;
-$date = '2022-05-16';
 
-/*$reponse = $reservationManager->creerReservation($idUtilisateur, $idModele, $idForfait, $date);
-$reponseJson = json_encode($reponse);*/
+$mailUtilisateur = null;
+if (isset($_SESSION['utilisateurConnecteIdMail']) && $_SESSION['utilisateurConnecteIdMail'] != null)
+{
+    $mailUtilisateur = $_SESSION['utilisateurConnecteIdMail'];
+}
+
+
+
+
+
 
