@@ -4,10 +4,10 @@ window.onload = function() {
             headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(response => response.json())
         .then(function(tableauReservation) {
+            let getReservation = document.getElementById('mesReservations');
             for (reservation of tableauReservation) {
                 console.log(reservation);
-                let reservation = document.getElementById('mesReservations');
-                reservation.insertAdjacentHTML = ('beforeend', `
+                getReservation.insertAdjacentHTML = ('beforeend', `
                     <div class="row">
                     <div class="col"></div>
                     <div class="col-5 compte">
