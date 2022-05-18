@@ -48,6 +48,32 @@ class ReservationManager
         }
     }
 
+    public function creerListeReservationUtilisateurFormatJson(string $mail): string|int
+    {
+
+        try
+        {
+            $sql = "SELECT * FROM RESERVATION WHERE RESERVATION.MailUtilisateur = ?";
+
+            $req = $this->connexionBdd->preparerRequete($sql);
+            $req->bindValue(1, $mail, PDO::PARAM_STR);
+            $req->execute();
+            $tableau = [];
+
+            //tant qu‘il y a des lignes en BDD
+            while ($resultat = $req->fetch(PDO::FETCH_ASSOC)) {
+                $tableau[] = $resultat;
+            }
+
+            return json_encode($tableau);
+        }
+        catch (PDOException $e)
+        {
+            echo 'ERREUR '.$e->getMessage();
+            return -1;
+        }
+    }
+
     public function getAllReservation(): array|int
     {
         $tableau[] = [];
