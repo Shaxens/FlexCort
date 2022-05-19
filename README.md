@@ -1,5 +1,8 @@
 # FlexCort [![web site](https://img.shields.io/badge/-Web%20Site-informational)](https://img.shields.io/badge/-Web%20Site-informational) [![php version](https://img.shields.io/badge/Php-8.1-success)](https://img.shields.io/badge/Php-8.1-success)
 
+<p align="center">
+ <img src=/view/images/logo.png>
+</p>
 
 ***Made by TradFlex parce que trouver un(e) escort n'a jamais été aussi simple***
 
