@@ -4,6 +4,7 @@
 ***Made by TradFlex parce que trouver un(e) escort n'a jamais été aussi simple***
 
 FlexCort est une simulation de site d'escort (tourné de façon humouristique).
+
 On peut y réserver un ou plusieurs modèles.
 >Il faut être connecté pour effectuer cette action.
 
