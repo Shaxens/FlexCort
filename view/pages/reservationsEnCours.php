@@ -34,7 +34,7 @@
             <div class="col-4"></div>
             <div class="col-5 compte">
                 <div>
-                    <h2>Informations personnelles</h2>
+                    <h2>Mes réservations</h2>
                     <div  id="mesReservations">
                     </div>
                 </div>

@@ -19,7 +19,7 @@
             <img src="../images/pinup1.jpg" alt="">
         </div>
         <div class="col-5">
-            <form action="classes/recupFormulaire.php" method="post">
+            <form action="connexion.php" method="post">
                 <div class="row">
                     <div class="col">
                         <label for="prenom">Prénom</label>
@@ -71,7 +71,7 @@
 
 <?php
 
-require_once 'classes/UtilisateurManager.php';
+require_once '../../model/entityManager/UtilisateurManager.php';
 
 $utilisateurManager = new UtilisateurManager();
 
@@ -81,6 +81,7 @@ if (isset($_POST['btnEnvoyer']))
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
-    $utilisateur = new Utilisateur($nom,$prenom,$email,$mdp);
+    $utilisateur = new Utilisateur($nom,$prenom,$email,$mdp, false);
     $utilisateurManager->createUtilisateur($utilisateur);
 }
+?>
