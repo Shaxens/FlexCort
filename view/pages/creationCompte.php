@@ -48,8 +48,8 @@
                     <label for="date">Entrez votre date de naissance : </label>
 
                     <input type="date" id="date" name="date" value="" required>
+                    <button type="submit" class="btn btn-primary" name = "btnEnvoyer">Envoyer</button>
                 </div>
-                <button type="submit" class="btn btn-primary" name = "btnEnvoyer">Envoyer</button>
             </form>
         </div>
         <div class="col pinup2">
